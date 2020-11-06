@@ -1,47 +1,65 @@
-// Variables for functions
+// Variables
 
-var api_key = "a8f7968642917eada65916047ac3150460c0056a";
+// var api_key = "a8f7968642917eada65916047ac3150460c0056a";
+let ingredients = "placeholder"
+let meal = "beef stew"
+let page = ""
 
 // API pulls
-fetch(
-  "https://api.spoonacular.com/food/ingredients/search?apiKey=" +
-    api_key +
-    "&includeNutrition=true"
-)
-  .then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        console.log(data);
-      });
-    } else {
-      alert("Error: " + response.statusText);
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// fetch(
+//   "https://api.spoonacular.com/food/ingredients/search?apiKey=" +
+//     api_key +
+//     "&includeNutrition=true"
+// )
+//   .then(function (response) {
+//     if (response.ok) {
+//       response.json().then(function (data) {
+//         console.log(data);
+//       });
+//     } else {
+//       alert("Error: " + response.statusText);
+//     }
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
-  fetch("https://recipe-puppy.p.rapidapi.com/?p=1&i=onions%2Cgarlic&q=omelet", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "a1763f65f3mshc9f6db6be3a5287p184f59jsneb238681d7af",
-		"x-rapidapi-host": "recipe-puppy.p.rapidapi.com"
-	}
-})
-.then(function (response) {
-  if (response.ok) {
-    response.json().then(function (data) {
-      console.log("recipe_puppy_API")
-      console.log(data);
-    });
-  } else {
-    alert("Error: " + response.statusText);
+const getRecipe = function(recipeRequest) {
+  let apiUrl = "https://recipe-puppy.p.rapidapi.com/?q=" + meal;
+  let apiInfo = {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-key": "a1763f65f3mshc9f6db6be3a5287p184f59jsneb238681d7af",
+      "x-rapidapi-host": "recipe-puppy.p.rapidapi.com"
+    }
   }
-})
-.catch((err) => {
-  console.error(err);
-});
+  fetch(apiUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          getCoordinates(data, curCity);
+        });
+      } else {
+        alert('Error: ' + response.statusText);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
 
 // Functions
 
 // Event listeners
+$("#search_button").click(function (event) {
+  event.preventDefault();
+  let meal = $(this).attr("id");
+  if(currentId === "search_button") {
+      var curCity = $("#city_input").val();
+      adjustCities(curCity);
+  }
+  else {
+      var curCity = $(this).html();
+  }
+  getLocation(curCity);
+});
