@@ -1,9 +1,6 @@
 // Variables
 
 // var api_key = "a8f7968642917eada65916047ac3150460c0056a";
-let ingredients = "placeholder"
-// let meal = "beef stew"
-let page = ""
 
 // API pulls
 // fetch(
