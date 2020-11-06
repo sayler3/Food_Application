@@ -2,7 +2,7 @@
 
 // var api_key = "a8f7968642917eada65916047ac3150460c0056a";
 let ingredients = "placeholder"
-let meal = "beef stew"
+// let meal = "beef stew"
 let page = ""
 
 // API pulls
@@ -24,7 +24,7 @@ let page = ""
 //     console.error(err);
 //   });
 
-const getRecipe = function(recipeRequest) {
+const getRecipe = function(meal) {
   let apiUrl = "https://recipe-puppy.p.rapidapi.com/?q=" + meal;
   let apiInfo = {
     "method": "GET",
@@ -33,11 +33,11 @@ const getRecipe = function(recipeRequest) {
       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com"
     }
   }
-  fetch(apiUrl)
+  fetch(apiUrl, apiInfo)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          getCoordinates(data, curCity);
+          console.log(data);
         });
       } else {
         alert('Error: ' + response.statusText);
@@ -53,13 +53,7 @@ const getRecipe = function(recipeRequest) {
 // Event listeners
 $("#search_button").click(function (event) {
   event.preventDefault();
-  let meal = $(this).attr("id");
-  if(currentId === "search_button") {
-      var curCity = $("#city_input").val();
-      adjustCities(curCity);
-  }
-  else {
-      var curCity = $(this).html();
-  }
-  getLocation(curCity);
+  let meal = $('#recipe_input').val();
+  console.log(meal)
+  getRecipe(meal);
 });
