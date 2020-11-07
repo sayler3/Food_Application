@@ -2,7 +2,7 @@
 
 // var api_key = "a8f7968642917eada65916047ac3150460c0056a";
 
-// API pulls
+// // API pulls
 // fetch(
 //   "https://api.spoonacular.com/food/ingredients/search?apiKey=" +
 //     api_key +
@@ -56,8 +56,8 @@ const getRecipe = function (meal) {
 // Functions
 
 // Event listeners
-$("#search_button").click(function (event) {
-  event.preventDefault();
+$("#search_button").on("click", function (e) {
+  e.preventDefault();
   let meal = $("#recipe_input").val();
   console.log(meal);
   getRecipe(meal);
