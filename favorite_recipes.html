@@ -31,11 +31,39 @@
     </div>
   </nav>
 
+  <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
+    <li><a href="grocery_list.html">Grocery List</a></li>
+    <li><a href="stores_near_you.html">Stores Near You</a></li>
+  </ul>
+
   <!-- Insert MAIN CONTENT HERE -->
   <!-- Insert MAIN CONTENT HERE -->
   <main>
     <div class="container">
       <h1>This is the favorite recipes page</h1>
+      <content class="col s12 m9 l8">
+        <div class="row" id="fav_recipe_cards">
+          <div class="col s6 m4 l4">
+            <div class="card hoverable">
+              <div class="card-image">
+                <img id="recipe_img">
+                <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i class="material-icons">add</i>
+                </button>
+              </div>
+              <div class="card-content">
+                <h5 id="recipe_name"></h5>
+                <p id="source"></p>
+                <button>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
+                </button>
+              </div>
+            </div>
+          </div>        
+        </div>
+      </content>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad odit ipsam suscipit fugit qui consequatur unde
         tempore esse architecto possimus est itaque autem quibusdam facere voluptates, atque quod molestiae dignissimos.
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex delectus natus ea porro repudiandae iusto in
