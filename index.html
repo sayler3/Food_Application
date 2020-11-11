@@ -13,15 +13,16 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Link to custom stylesheet -->
-  <link src="./Assets/css/style.css">
+  <link rel="stylesheet" href="Assets/css/style.css">
   </link>
 </head>
 
 <body>
   <!-- Navigation Bar -->
-  <nav>
+  <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo">Recipe Pal</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="index.html">Home</a></li>
         <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
@@ -30,47 +31,479 @@
       </ul>
     </div>
   </nav>
+
+  <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
+    <li><a href="grocery_list.html">Grocery List</a></li>
+    <li><a href="stores_near_you.html">Stores Near You</a></li>
+  </ul>
+
+
   <!-- Main section -->
   <main>
-    <h1>This in the home page</h1>
-    <input type="text" class="form-control" placeholder="search for a recipe" id="recipe_input">
-    <div class="input-group-append">
-      <button class="btn btn btn-outline-info" type="button" id="search_button">Submit
-      </button>
-    </div>
-    <h3>Options: </h3>
-    <ul class="list-group text-left">
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_0">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_1">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_2">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_3">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_4">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_5">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_6">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_7">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_8">
-        meal placeholder
-      </button>
-      <button class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_9">
-        meal placeholder
-      </button>
-    </ul>
+    <header class="banner-image">
+      <div class="hero-text">
+        <h1>Hello There, Welcome to Recipe Pal</h1>
+        <h4>Look no further for what to cook, because here you can instantly find delicious recipes from the most
+          popular cooking websites.</h4>
+        <!-- Open Search Recipe Form Modal Trigger -->
+        <button data-target="searchForm" class="btn-large modal-trigger" id="open_form_button">Find a
+          Recipe</button>
+      </div>
+      <!-- Modal Structure for the search form -->
+      <div id="searchForm" class="modal">
+        <div class="modal-content black-text">
+          <h2 class="center-align">Find a Recipe</h2>
+          <div class="divider"></div>
+          <br>
+          <h4>Enter a recipe, ingredient, or keyword</h4>
+          <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
+          </br>
+          <h3>Refine Search</h3>
+          <div class="row">
+            <div class="col s6 m3 l3">
+              <h5>DISH</h5>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Drinks">Drinks</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Desserts">Desserts</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Main course">Main course</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Salad">Salad</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Starter">Sandwiches</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Starter">Soup</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Starter">Starter</span>
+                </label>
+              </p>
+            </div>
+
+            <div class="col s6 m3 l3">
+              <h5>ALLERGY SPECIFIC</h5>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="alcohol-free">No Alcohol</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="shellfish-free">No Shellfish</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="dairy-free">No Dairy</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="gluten-free">No Gluten</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="low-sugar">No Sugar</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="peanut-free">No Peanuts</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="tree-nut-free">No Tree Nuts</span>
+                </label>
+              </p>
+            </div>
+
+            <div class="col s6 m3 l3">
+              <h5>DIET</h5>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="keto-friendly">Keto</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="kosher">Kosher</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="paleo">Paleo</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="pescatarian">Pescatarian</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="vegetarian">Vegetarian</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="vegan">Vegan</span>
+                </label>
+              </p>
+            </div>
+
+            <div class="col s6 m3 l3">
+              <h5>CUISINE</h5>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="American">American</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Chinese">Chinese</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="French">French</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Indian">Indian</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Italian">Italian</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Japanese">Japanese</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Mediterranean">Mediterranean</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Mexican">Mexican</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input type="checkbox" />
+                  <span apiParameter="Middle Eastern">Middle Eastern</span>
+                </label>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <!-- Button to cubmit recipe search -->
+              <button type="button" class="modal-close waves-effect waves-green btn-flat" id="search_button"> Find a
+                recipe</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </header>
+
+    <div class="row">
+      <!-- This content will be:
+      9-columns-wide on large screens,
+      8-columns-wide on medium screens,
+      12-columns-wide on small screens -->
+      <content class="col s12 m9 l8">
+        <div class="container hide" id="recipe_options">
+          <div class="row">
+            <!-- Recipe Options Content starts here -->
+            <!-- recipe #1 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #2 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #3 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #4 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #5 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #6 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #7 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #8 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #9 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #10 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #11 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- recipe #12 -->
+            <div class="col s6 m4 l4">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img id="recipe_img">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i>
+                  </a>
+                </div>
+                <div class="card-content">
+                  <h5 id="recipe_name"></h5>
+                  <p id="source"></p>
+                  <button>
+                    <a id="view_recipe" target="_blank">View Recipe</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </content>
+
+      <!-- This content will be: 
+        3-columns-wide on large screens,
+        4-columns-wide on medium screens,
+        12-columns-wide on small screens -->
+
+      <aside class="col s12 m3 l4">
+        <h3>Recomended for you!</h3>
+      </aside>
   </main>
 
   <!-- Footer Section  -->
@@ -99,14 +532,16 @@
     </div>
   </footer>
 
+  <!-- Import jQuery before materialize.js -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!--JavaScript at end of body for optimized Materialize loading-->
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <!-- Javascript links -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- Custom JavaScript link -->
-  <script src="Assets/js/script.js"></script>
+  <script type="text/javascript" src="Assets/js/script.js"></script>
 </body>
 
 </html>
