@@ -113,8 +113,21 @@ $("#search_button").on("click", function (e) {
   }
 });
 
+$(":button").click(function() {
+  event.preventDefault();
+  let currentId = $(this).attr("id");
+  console.log(currentId)
+    if(currentId === "ingredient_list") {
+        var curRecipe = $(this).val();
+        console.log(curRecipe);
+    }
+    else {
+    } 
+})
+
 // FUNCTIONS
 // This function prints the recipe options to the screen in nicely formatted cards
+// JR UPDATED HERE
 function printRecipeOptions(resultArray) {
   // remove the class="hide" on the container with the id="recipe_options"
   $("#recipe_options").removeClass("hide");
@@ -124,6 +137,9 @@ function printRecipeOptions(resultArray) {
   var allRecipeImgEl = document.querySelectorAll("#recipe_img");
   var allRecipeSources = document.querySelectorAll("#source");
   var allRecipeButtons = document.querySelectorAll("#view_recipe");
+  var allRecipeIngrBut = document.querySelectorAll("#ingredient_list");
+  console.log(allRecipeIngrBut[1])
+  console.log(typeof allRecipeNameEl)
 
   for (var i = 0; i < allRecipeNameEl.length; i++) {
     allRecipeNameEl[i].textContent = resultArray[i].name;
