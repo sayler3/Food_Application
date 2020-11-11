@@ -36,6 +36,8 @@
 var app_id = "e32899ff";
 var app_key = "23e6d6d3b09c69fc834e9c32abb3ca62";
 var ourRecipesArray = []; // my array
+var favRecipes = JSON.parse(localStorage.getItem('favRecipes')) || []
+
 // Last result index (exclusive, default from + 10). We use 20 becuase we want to show more results than 10
 const getRecipe = function (meal) {
   let url =
@@ -120,14 +122,15 @@ $(":button").click(function() {
   event.preventDefault();
   let currentId = $(this).attr("id");
     if(currentId === "ingredient_list") {
-        var curRecipe = $(this).val();
-        console.log(ourRecipesArray[curRecipe].ingredients[1].text);
-        console.log(ourRecipesArray[curRecipe].ingredients.length)
-        for (let i = 0; i < ourRecipesArray[curRecipe].ingredients.length; i++) {
+        let curRecipe = $(this).val();
+        let curRecipeObj = ourRecipesArray[curRecipe]
+        favRecipes.splice(0, 0, curRecipeObj)
+        localStorage.setItem('favRecipes', JSON.stringify(favRecipes))
+        for (let i = 0; i < curRecipeObj.ingredients.length; i++) {
           let grocery_li = document.createElement('li');
           grocery_li.setAttribute("class", "collection-item")
           $("#grocery_ul").append(grocery_li)
-          grocery_li.textContent = ourRecipesArray[curRecipe].ingredients[i].text
+          grocery_li.textContent = curRecipeObj.ingredients[i].text
         }
     }
     else {
