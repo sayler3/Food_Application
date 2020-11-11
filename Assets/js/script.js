@@ -32,6 +32,7 @@
 
 // FETCHING RECIPE API: Edamam
 // Edamam Recipe Search API Documentation is viewable here: https://developer.edamam.com/edamam-docs-recipe-api
+// JR UPDATED HERE MOVED OUR RECIPES ARRAY TO THE GLOBAL SCOPE
 var app_id = "e32899ff";
 var app_key = "23e6d6d3b09c69fc834e9c32abb3ca62";
 var ourRecipesArray = []; // my array
@@ -120,7 +121,14 @@ $(":button").click(function() {
   let currentId = $(this).attr("id");
     if(currentId === "ingredient_list") {
         var curRecipe = $(this).val();
-        console.log(ourRecipesArray[curRecipe].ingredients);
+        console.log(ourRecipesArray[curRecipe].ingredients[1].text);
+        console.log(ourRecipesArray[curRecipe].ingredients.length)
+        for (let i = 0; i < ourRecipesArray[curRecipe].ingredients.length; i++) {
+          let grocery_li = document.createElement('li');
+          grocery_li.setAttribute("class", "collection-item")
+          $("#grocery_ul").append(grocery_li)
+          grocery_li.textContent = ourRecipesArray[curRecipe].ingredients[i].text
+        }
     }
     else {
     } 
