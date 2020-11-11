@@ -34,6 +34,7 @@
 // Edamam Recipe Search API Documentation is viewable here: https://developer.edamam.com/edamam-docs-recipe-api
 var app_id = "e32899ff";
 var app_key = "23e6d6d3b09c69fc834e9c32abb3ca62";
+var ourRecipesArray = []; // my array
 // Last result index (exclusive, default from + 10). We use 20 becuase we want to show more results than 10
 const getRecipe = function (meal) {
   let url =
@@ -62,7 +63,7 @@ const getRecipe = function (meal) {
         console.log(data);
 
         // we will create an array of objects containing the data that we are interested in
-        var ourRecipesArray = []; // my array
+        // var ourRecipesArray = []; // my array
         var recipe = {}; // my object
 
         for (var i = 0; i < data.hits.length; i++) {
@@ -88,6 +89,7 @@ const getRecipe = function (meal) {
 
         // We use "ourRecipesArray" to print the results to the screen
         printRecipeOptions(ourRecipesArray);
+        
       })
       .catch(function (err) {
         console.error("Fetch Error: ", err);
@@ -116,10 +118,9 @@ $("#search_button").on("click", function (e) {
 $(":button").click(function() {
   event.preventDefault();
   let currentId = $(this).attr("id");
-  console.log(currentId)
     if(currentId === "ingredient_list") {
         var curRecipe = $(this).val();
-        console.log(curRecipe);
+        console.log(ourRecipesArray[curRecipe].ingredients);
     }
     else {
     } 
@@ -138,8 +139,6 @@ function printRecipeOptions(resultArray) {
   var allRecipeSources = document.querySelectorAll("#source");
   var allRecipeButtons = document.querySelectorAll("#view_recipe");
   var allRecipeIngrBut = document.querySelectorAll("#ingredient_list");
-  console.log(allRecipeIngrBut[1])
-  console.log(typeof allRecipeNameEl)
 
   for (var i = 0; i < allRecipeNameEl.length; i++) {
     allRecipeNameEl[i].textContent = resultArray[i].name;
