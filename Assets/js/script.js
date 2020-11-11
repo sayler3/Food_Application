@@ -141,6 +141,7 @@ $(":button").click(function() {
 
 // This is to add recipe cards for favorite recipes that are stored in localStorage.
 $('#fav_recipe_cards').ready(function() {
+  // Add an if statement if there is nothing in local storage then have text saying there aren't any favorite recipes saved. else add all the cards.
   console.log("start fav recipes")
   console.log(favRecipes)
 
