@@ -140,6 +140,7 @@ function createMarker(place) {
     const marker = new google.maps.Marker({
       map,
       position: place.latlng,
+      title: place.name,
     });
     google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(place.name);
