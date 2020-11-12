@@ -47,13 +47,19 @@
   <!-- Insert MAIN CONTENT HERE -->
 
   <main>
-    <div class="container">
-      <h1>This is the grocery store locator</h1>
-      <h3>Stores Near You</h3>
-      <ol id="store_list">
-
-      </ol>
-      <div id="map"></div>
+    <h1 class="center-align">This is the grocery store locator</h1>
+    <div class="row">
+      <!-- Column holds the map -->
+      <div class="col s12 m8 l8">
+        <div id="map"></div>
+        <div id="loading"></div>
+      </div>
+      <div class="col s12 m4 l4">
+        <h3 class="center-align">Stores Near You</h3>
+        <ol id="store_list">
+          <!-- store location info will be shown here -->
+        </ol>
+      </div>
 
     </div>
   </main>
