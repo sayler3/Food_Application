@@ -147,44 +147,47 @@ $("#fav_recipe_cards").ready(function () {
   console.log("start fav recipes");
   console.log(favRecipes);
 
-  // Elements that need to be created
-  let favGrid1 = document.createElement("div");
-  let card2 = document.createElement("div");
-  let cardImg3 = document.createElement("div");
-  let favRecipeImg4 = document.createElement("img");
-  let cardCon3 = document.createElement("div");
-  let recipeName4 = document.createElement("h5");
-  let recipeSource4 = document.createElement("p");
-  let recipeBut4 = document.createElement("button");
-  let recipeLink5 = document.createElement("a");
-
   // Setting attributes and appending
-  favGrid1.setAttribute("class", "col s6 m4 l4");
-  favGrid1.appendChild(card2);
-  card2.setAttribute("class", "card hoverable");
-  card2.appendChild(cardImg3);
-  card2.appendChild(cardCon3);
-  cardImg3.setAttribute("class", "card-image");
-  cardImg3.appendChild(favRecipeImg4);
-  favRecipeImg4.setAttribute("id", "recipe_img");
-  cardCon3.setAttribute("class", "card-content");
-  cardCon3.appendChild(recipeName4);
-  cardCon3.appendChild(recipeSource4);
-  cardCon3.appendChild(recipeBut4);
-  recipeName4.setAttribute("id", "recipe_name");
-  recipeSource4.setAttribute("id", "source");
-  recipeBut4.appendChild(recipeLink5);
-  recipeLink5.setAttribute("id", "view_recipe");
-  recipeLink5.setAttribute("target", "_blank");
-  recipeLink5.textContent = "View Recipe";
+  for (let i = 0; i < favRecipes.length; i++) {
+    // Elements that need to be created
+    let favGrid1 = document.createElement("div");
+    let card2 = document.createElement("div");
+    let cardImg3 = document.createElement("div");
+    let favRecipeImg4 = document.createElement("img");
+    let cardCon3 = document.createElement("div");
+    let recipeName4 = document.createElement("h5");
+    let recipeSource4 = document.createElement("p");
+    let recipeBut4 = document.createElement("button");
+    let recipeLink5 = document.createElement("a");
+    
+    favGrid1.setAttribute("class", "col s6 m4 l4");
+    favGrid1.appendChild(card2);
+    card2.setAttribute("class", "card hoverable");
+    card2.appendChild(cardImg3);
+    card2.appendChild(cardCon3);
+    cardImg3.setAttribute("class", "card-image");
+    cardImg3.appendChild(favRecipeImg4);
+    favRecipeImg4.setAttribute("id", "recipe_img");
+    cardCon3.setAttribute("class", "card-content");
+    cardCon3.appendChild(recipeName4);
+    cardCon3.appendChild(recipeSource4);
+    cardCon3.appendChild(recipeBut4);
+    recipeName4.setAttribute("id", "recipe_name");
+    recipeSource4.setAttribute("id", "source");
+    recipeBut4.appendChild(recipeLink5);
+    recipeLink5.setAttribute("id", "view_recipe");
+    recipeLink5.setAttribute("target", "_blank");
+    recipeLink5.textContent = "View Recipe";
 
-  // Appending to HTML file
-  $("#fav_recipe_cards").append(favGrid1);
+    // Appending to HTML file
+    $("#fav_recipe_cards").append(favGrid1);;
+    
+  }
+  
 });
 
 // FUNCTIONS
 // This function prints the recipe options to the screen in nicely formatted cards
-// JR UPDATED HERE
 function printRecipeOptions(resultArray) {
   // remove the class="hide" on the container with the id="recipe_options"
   $("#recipe_options").removeClass("hide");
