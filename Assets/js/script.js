@@ -123,6 +123,7 @@ $("#search_button").on("click", function (e) {
 
 $(":button").click(function () {
   event.preventDefault();
+  $("#grocery_ul").empty();
   let currentId = $(this).attr("id");
   if (currentId === "ingredient_list") {
     let curRecipe = $(this).val();
