@@ -1,38 +1,5 @@
-// const getRecipe = function (meal) {
-//   let apiUrl = "https://recipe-puppy.p.rapidapi.com/?q=" + meal;
-//   let apiInfo = {
-//     method: "GET",
-//     headers: {
-//       "x-rapidapi-key": "a1763f65f3mshc9f6db6be3a5287p184f59jsneb238681d7af",
-//       "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-//     },
-//   };
-//   fetch(apiUrl, apiInfo)
-//     .then(function (response) {
-//       if (response.ok) {
-//         response.json().then(function (data) {
-//           console.log(data);
-//   for (var i = 0; i < data.results.length; i++) {
-//     var recipeName = data.results[i].title;
-//     console.log(recipeName);
-//     $("#options")
-//       .append(`<button style=" width: 200px; height: 300px; padding: 10px; margin: 10px;" class="list-group-item text-left btn btn-outline-secondary" type="button" id="recipe_btn_0">
-//  ${recipeName}
-// </button>`);
-//           }
-//         });
-//       } else {
-//         alert("Error: " + response.statusText);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// };
-
 // FETCHING RECIPE API: Edamam
 // Edamam Recipe Search API Documentation is viewable here: https://developer.edamam.com/edamam-docs-recipe-api
-// JR UPDATED HERE MOVED OUR RECIPES ARRAY TO THE GLOBAL SCOPE
 var app_id = "e32899ff";
 var app_key = "23e6d6d3b09c69fc834e9c32abb3ca62";
 var ourRecipesArray = []; // my array
@@ -143,7 +110,7 @@ $(":button").click(function () {
 
 // This is to add recipe cards for favorite recipes that are stored in localStorage.
 $("#fav_recipe_cards").ready(function () {
-  // Add an if statement if there is nothing in local storage then have text saying there aren't any favorite recipes saved. else add all the cards.
+  // Check if there is anything in localStorage.
   if (favRecipes.length > 0) {
   
     // Setting attributes and appending
