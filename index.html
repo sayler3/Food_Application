@@ -18,28 +18,29 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Recipe Pal</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
-        <li><a href="grocery_list.html">Grocery List</a></li>
-        <li><a href="stores_near_you.html">Stores Near You</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <!-- Navigation Bar -->
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Recipe Pal</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+          <li><a href="grocery_list.html">Grocery List</a></li>
+          <li><a href="stores_near_you.html">Stores Near You</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
-    <li><a href="grocery_list.html">Grocery List</a></li>
-    <li><a href="stores_near_you.html">Stores Near You</a></li>
-  </ul>
-
+    <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+      <li><a href="grocery_list.html">Grocery List</a></li>
+      <li><a href="stores_near_you.html">Stores Near You</a></li>
+    </ul>
+  </header>
 
   <!-- Main section -->
   <main>
@@ -59,208 +60,210 @@
           <div class="divider"></div>
           <br>
           <h4>Enter a recipe, ingredient, or keyword</h4>
-          <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
-          </br>
-          <h3>Refine Search</h3>
-          <div class="row">
-            <div class="col s6 m3 l3">
-              <h5>DISH</h5>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Drinks">Drinks</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Desserts">Desserts</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Main course">Main course</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Salad">Salad</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Starter">Sandwiches</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Starter">Soup</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Starter">Starter</span>
-                </label>
-              </p>
+          <form>
+            <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
+            </br>
+            <h3>Refine Search</h3>
+            <div class="row">
+              <div class="col s6 m3 l3">
+                <h5>DISH</h5>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Drinks">Drinks</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Desserts">Desserts</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Main course">Main course</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Salad">Salad</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Starter">Sandwiches</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Starter">Soup</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Starter">Starter</span>
+                  </label>
+                </p>
+              </div>
+
+              <div class="col s6 m3 l3">
+                <h5>ALLERGY SPECIFIC</h5>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="alcohol-free">No Alcohol</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="shellfish-free">No Shellfish</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="dairy-free">No Dairy</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="gluten-free">No Gluten</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="low-sugar">No Sugar</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="peanut-free">No Peanuts</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="tree-nut-free">No Tree Nuts</span>
+                  </label>
+                </p>
+              </div>
+
+              <div class="col s6 m3 l3">
+                <h5>DIET</h5>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="keto-friendly">Keto</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="kosher">Kosher</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="paleo">Paleo</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="pescatarian">Pescatarian</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="vegetarian">Vegetarian</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="vegan">Vegan</span>
+                  </label>
+                </p>
+              </div>
+
+              <div class="col s6 m3 l3">
+                <h5>CUISINE</h5>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="American">American</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Chinese">Chinese</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="French">French</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Indian">Indian</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Italian">Italian</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Japanese">Japanese</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Mediterranean">Mediterranean</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Mexican">Mexican</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" />
+                    <span apiParameter="Middle Eastern">Middle Eastern</span>
+                  </label>
+                </p>
+              </div>
             </div>
 
-            <div class="col s6 m3 l3">
-              <h5>ALLERGY SPECIFIC</h5>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="alcohol-free">No Alcohol</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="shellfish-free">No Shellfish</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="dairy-free">No Dairy</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="gluten-free">No Gluten</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="low-sugar">No Sugar</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="peanut-free">No Peanuts</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="tree-nut-free">No Tree Nuts</span>
-                </label>
-              </p>
+            <div class="row">
+              <div class="col-12">
+                <!-- Button to submit recipe search -->
+                <button type="button" class="modal-close waves-effect waves-green btn-flat" id="search_button"> Find a
+                  recipe</button>
+              </div>
             </div>
-
-            <div class="col s6 m3 l3">
-              <h5>DIET</h5>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="keto-friendly">Keto</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="kosher">Kosher</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="paleo">Paleo</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="pescatarian">Pescatarian</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="vegetarian">Vegetarian</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="vegan">Vegan</span>
-                </label>
-              </p>
-            </div>
-
-            <div class="col s6 m3 l3">
-              <h5>CUISINE</h5>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="American">American</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Chinese">Chinese</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="French">French</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Indian">Indian</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Italian">Italian</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Japanese">Japanese</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Mediterranean">Mediterranean</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Mexican">Mexican</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type="checkbox" />
-                  <span apiParameter="Middle Eastern">Middle Eastern</span>
-                </label>
-              </p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <!-- Button to submit recipe search -->
-              <button type="button" class="modal-close waves-effect waves-green btn-flat" id="search_button"> Find a
-                recipe</button>
-            </div>
-          </div>
+          </form>
 
         </div>
       </div>
@@ -282,7 +285,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -300,7 +304,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=1><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=1><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -318,7 +323,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=2><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=2><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -336,7 +342,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=3><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=3><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -354,7 +361,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=4><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=4><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -372,7 +380,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=5><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=5><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -390,7 +399,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=6><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=6><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -408,7 +418,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=7><i class="material-icons" >add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=7><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -426,7 +437,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=8><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=8><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -444,7 +456,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=9><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=9><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -462,7 +475,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=10><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=10><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -480,7 +494,8 @@
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=11><i class="material-icons">add</i>
+                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=11><i
+                      class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
@@ -503,8 +518,8 @@
         12-columns-wide on small screens -->
       <!-- JR UPDATED HERE TO CREATE LIST -->
       <aside class="col s12 m3 l4">
+        <h4>Grocery List</h4>
         <ul class="collection with-header" id="grocery_ul">
-          <li class="collection-header"></li><h4>Grocery List</h4></li>
         </ul>
       </aside>
   </main>
@@ -520,9 +535,9 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Favorite Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Stores Near You</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="grocery_list.html">Grocery List</a></li>
+            <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
       </div>
@@ -545,6 +560,9 @@
 
   <!-- Custom JavaScript link -->
   <script type="text/javascript" src="Assets/js/script.js"></script>
+  <script>
+
+  </script>
 </body>
 
 </html>

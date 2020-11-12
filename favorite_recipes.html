@@ -18,50 +18,36 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Recipe Pal</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
-        <li><a href="grocery_list.html">Grocery List</a></li>
-        <li><a href="stores_near_you.html">Stores Near You</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <!-- Navigation Bar -->
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Recipe Pal</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+          <li><a href="grocery_list.html">Grocery List</a></li>
+          <li><a href="stores_near_you.html">Stores Near You</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
-    <li><a href="grocery_list.html">Grocery List</a></li>
-    <li><a href="stores_near_you.html">Stores Near You</a></li>
-  </ul>
+    <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+      <li><a href="grocery_list.html">Grocery List</a></li>
+      <li><a href="stores_near_you.html">Stores Near You</a></li>
+    </ul>
+  </header>
 
-  <!-- Insert MAIN CONTENT HERE -->
   <!-- Insert MAIN CONTENT HERE -->
   <main>
     <div class="container">
-      <h1>This is the favorite recipes page</h1>
+      <h1 class="valign center" id="rec_recipes">Your Recently Searched Recipes</h1>
       <content class="col s12 m9 l8">
         <div class="row" id="fav_recipe_cards">
-          <div class="col s6 m4 l4">
-            <div class="card hoverable">
-              <div class="card-image">
-                <img id="recipe_img">
-                <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i class="material-icons">add</i>
-                </button>
-              </div>
-              <div class="card-content">
-                <h5 id="recipe_name"></h5>
-                <p id="source"></p>
-                <button>
-                  <a id="view_recipe" target="_blank">View Recipe</a>
-                </button>
-              </div>
-            </div>
-          </div>        
         </div>
       </content>
     </div>
@@ -78,9 +64,9 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Favorite Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Stores Near You</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="grocery_list.html">Grocery List</a></li>
+            <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
       </div>

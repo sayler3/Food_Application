@@ -20,25 +20,46 @@
 
 <body>
   <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
-        <li><a href="grocery_list.html">Grocery List</a></li>
-        <li><a href="stores_near_you.html">Stores Near You</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <!-- Navigation Bar -->
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Recipe Pal</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+          <li><a href="grocery_list.html">Grocery List</a></li>
+          <li><a href="stores_near_you.html">Stores Near You</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+      <li><a href="grocery_list.html">Grocery List</a></li>
+      <li><a href="stores_near_you.html">Stores Near You</a></li>
+    </ul>
+  </header>
 
   <!-- Insert MAIN CONTENT HERE -->
 
   <main>
-    <div class="container">
-      <h1>This is the grocery store locator</h1>
-      <div id="map"></div>
-    </div>
+    <h1 class="center-align">This is the grocery store locator</h1>
+    <div class="row">
+      <!-- Column holds the map -->
+      <div class="col s12 m8 l8">
+        <div id="map"></div>
+        <div id="loading"></div>
+      </div>
+      <div class="col s12 m4 l4">
+        <h3 class="center-align">Stores Near You</h3>
+        <ol id="store_list">
+          <!-- store location info will be shown here -->
+        </ol>
+      </div>
   </main>
 
   <!-- Footer Section  -->
@@ -52,9 +73,9 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Favorite Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Grocery List</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Stores Near You</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="grocery_list.html">Grocery List</a></li>
+            <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
       </div>
