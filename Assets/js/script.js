@@ -144,46 +144,63 @@ $(":button").click(function () {
 // This is to add recipe cards for favorite recipes that are stored in localStorage.
 $("#fav_recipe_cards").ready(function () {
   // Add an if statement if there is nothing in local storage then have text saying there aren't any favorite recipes saved. else add all the cards.
-  console.log("start fav recipes");
-  console.log(favRecipes);
-
-  // Setting attributes and appending
-  for (let i = 0; i < favRecipes.length; i++) {
-    // Elements that need to be created
-    let favGrid1 = document.createElement("div");
-    let card2 = document.createElement("div");
-    let cardImg3 = document.createElement("div");
-    let favRecipeImg4 = document.createElement("img");
-    let cardCon3 = document.createElement("div");
-    let recipeName4 = document.createElement("h5");
-    let recipeSource4 = document.createElement("p");
-    let recipeBut4 = document.createElement("button");
-    let recipeLink5 = document.createElement("a");
-    
-    favGrid1.setAttribute("class", "col s6 m4 l4");
-    favGrid1.appendChild(card2);
-    card2.setAttribute("class", "card hoverable");
-    card2.appendChild(cardImg3);
-    card2.appendChild(cardCon3);
-    cardImg3.setAttribute("class", "card-image");
-    cardImg3.appendChild(favRecipeImg4);
-    favRecipeImg4.setAttribute("id", "recipe_img");
-    cardCon3.setAttribute("class", "card-content");
-    cardCon3.appendChild(recipeName4);
-    cardCon3.appendChild(recipeSource4);
-    cardCon3.appendChild(recipeBut4);
-    recipeName4.setAttribute("id", "recipe_name");
-    recipeSource4.setAttribute("id", "source");
-    recipeBut4.appendChild(recipeLink5);
-    recipeLink5.setAttribute("id", "view_recipe");
-    recipeLink5.setAttribute("target", "_blank");
-    recipeLink5.textContent = "View Recipe";
-
-    // Appending to HTML file
-    $("#fav_recipe_cards").append(favGrid1);;
-    
-  }
+  if (favRecipes.length > 0) {
   
+    // Setting attributes and appending
+    for (let i = 0; i < favRecipes.length; i++) {
+      // Elements that need to be created
+      let favGrid1 = document.createElement("div");
+      let card2 = document.createElement("div");
+      let cardImg3 = document.createElement("div");
+      let favRecipeImg4 = document.createElement("img");
+      let cardCon3 = document.createElement("div");
+      let recipeName4 = document.createElement("h5");
+      let recipeSource4 = document.createElement("p");
+      let recipeBut4 = document.createElement("button");
+      let recipeLink5 = document.createElement("a");
+    
+      favGrid1.setAttribute("class", "col s6 m4 l4");
+      favGrid1.appendChild(card2);
+      card2.setAttribute("class", "card hoverable");
+      card2.appendChild(cardImg3);
+      card2.appendChild(cardCon3);
+      cardImg3.setAttribute("class", "card-image");
+      cardImg3.appendChild(favRecipeImg4);
+      favRecipeImg4.setAttribute("id", "recipe_img_r");
+      cardCon3.setAttribute("class", "card-content");
+      cardCon3.appendChild(recipeName4);
+      cardCon3.appendChild(recipeSource4);
+      cardCon3.appendChild(recipeBut4);
+      recipeName4.setAttribute("id", "recipe_name_r");
+      recipeSource4.setAttribute("id", "source_r");
+      recipeBut4.appendChild(recipeLink5);
+      recipeLink5.setAttribute("id", "view_recipe_r");
+      recipeLink5.setAttribute("target", "_blank");
+      recipeLink5.textContent = "View Recipe";
+
+      // Appending to HTML file
+      $("#fav_recipe_cards").append(favGrid1);
+    
+    }
+    // Variables to set textContent
+    let allRecipeNameEl_r = document.querySelectorAll("#recipe_name_r");
+    let allRecipeImgEl_r = document.querySelectorAll("#recipe_img_r");
+    let allRecipeSources_r = document.querySelectorAll("#source_r");
+    let allRecipeButtons_r = document.querySelectorAll("#view_recipe_r");
+
+    for (let i = 0; i < favRecipes.length; i++) {
+      allRecipeNameEl_r[i].textContent = favRecipes[i].name;
+      allRecipeImgEl_r[i].setAttribute("src", favRecipes[i].image);
+      allRecipeSources_r[i].textContent = "Source: " + favRecipes[i].source;
+      allRecipeButtons_r[i].setAttribute("href", favRecipes[i].url);
+    }
+
+    allRecipeNameEl_r[0].textContent = favRecipes[0].name  
+  }
+  else {
+    $("#rec_recipes").empty();
+    $("#rec_recipes").append("Unfortunately there are no recent recipes to show.");
+  }
 });
 
 // FUNCTIONS
