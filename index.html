@@ -60,7 +60,7 @@
           <div class="divider"></div>
           <br>
           <h4>Enter a recipe, ingredient, or keyword</h4>
-          <form>
+          <form id="searchRecipeForm">
             <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
             </br>
             <h3>Refine Search</h3>
@@ -100,8 +100,20 @@
                 <h5>DIET</h5>
                 <p>
                   <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
+                    <span>Vegetarian</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
                     <input type="checkbox" id="healthParameter" apiParameter="vegan" />
                     <span>Vegan</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
+                    <span>Vegetarian</span>
                   </label>
                 </p>
               </div>
@@ -122,6 +134,8 @@
                 <!-- Button to submit recipe search -->
                 <button type="button" class="modal-close waves-effect waves-green btn-flat" id="search_button"> Find a
                   recipe</button>
+                <!-- Added button to clear searches -->
+                <button class="btn-large" id="clear_form_button">Clear Search</button>
               </div>
             </div>
           </form>
