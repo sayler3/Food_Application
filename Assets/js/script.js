@@ -5,16 +5,8 @@ var app_key = "23e6d6d3b09c69fc834e9c32abb3ca62";
 var ourRecipesArray = []; // my array
 var favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
 
-// Last result index (exclusive, default from + 10). We use 20 becuase we want to show more results than 10
-const getRecipe = function (meal) {
-  let url =
-    "https://api.edamam.com/search?q=" +
-    meal +
-    "&app_id=" +
-    app_id +
-    "&app_key=" +
-    app_key +
-    "&from=0&to=20";
+// Last result index (exclusive, default from + 12). We use 12 becuase we want to show more results than 10
+const getRecipes = function (meal, url) {
   fetch(url).then(function (response) {
     if (!response.ok) {
       console.log("Looks like there was a problem. " + response.statusText);
@@ -75,6 +67,10 @@ $(".sidenav-trigger").on("click", function () {
   $(".sidenav").sidenav();
 });
 
+$(".sidenav-trigger").on("click", function () {
+  $(".sidenav").sidenav();
+});
+
 $("#search_button").on("click", function (e) {
   e.preventDefault();
   let meal = $("#recipe_input").val().trim();
@@ -83,12 +79,40 @@ $("#search_button").on("click", function (e) {
     return false;
   } else {
     $("#searchForm").modal("close");
-    console.log("Fetching results with the term: " + meal);
-    getRecipe(meal);
+    let url =
+      "https://api.edamam.com/search?q=" +
+      meal +
+      "&app_id=" +
+      app_id +
+      "&app_key=" +
+      app_key +
+      "&from=0&to=12";
+
+    // check if filters are added
+    var allCheckedBoxes = $("input[type=checkbox]:checked");
+    if (allCheckedBoxes.length) {
+      for (var i = 0; i < allCheckedBoxes.length; i++) {
+        var id = allCheckedBoxes[i].getAttribute("id");
+        var apiParameter = allCheckedBoxes[i].getAttribute("apiParameter");
+
+        if (id === "cuisineTypeParameter") {
+          url += "&cuisineType=" + apiParameter;
+        } else if (id === "dishTypeParameter") {
+          url += "&dishType=" + apiParameter;
+        } else if (id === "healthParameter") {
+          url += "&health=" + apiParameter;
+        }
+      }
+    } else {
+      return;
+    }
+    // fetch recipes
+    getRecipes(meal, url);
+    console.log("Fetching results with the url: " + url);
   }
 });
 
-$(":button").click(function () {
+$(":button").on("click", function (event) {
   event.preventDefault();
   $("#grocery_ul").empty();
   let currentId = $(this).attr("id");
@@ -112,7 +136,6 @@ $(":button").click(function () {
 $("#fav_recipe_cards").ready(function () {
   // Check if there is anything in localStorage.
   if (favRecipes.length > 0) {
-  
     // Setting attributes and appending
     for (let i = 0; i < favRecipes.length; i++) {
       // Elements that need to be created
@@ -125,7 +148,7 @@ $("#fav_recipe_cards").ready(function () {
       let recipeSource4 = document.createElement("p");
       let recipeBut4 = document.createElement("button");
       let recipeLink5 = document.createElement("a");
-    
+
       favGrid1.setAttribute("class", "col s6 m4 l4");
       favGrid1.appendChild(card2);
       card2.setAttribute("class", "card hoverable");
@@ -147,7 +170,6 @@ $("#fav_recipe_cards").ready(function () {
 
       // Appending to HTML file
       $("#fav_recipe_cards").append(favGrid1);
-    
     }
     // Variables to set textContent
     let allRecipeNameEl_r = document.querySelectorAll("#recipe_name_r");
@@ -162,11 +184,12 @@ $("#fav_recipe_cards").ready(function () {
       allRecipeButtons_r[i].setAttribute("href", favRecipes[i].url);
     }
 
-    allRecipeNameEl_r[0].textContent = favRecipes[0].name  
-  }
-  else {
+    allRecipeNameEl_r[0].textContent = favRecipes[0].name;
+  } else {
     $("#rec_recipes").empty();
-    $("#rec_recipes").append("Unfortunately there are no recent recipes to show.");
+    $("#rec_recipes").append(
+      "Unfortunately there are no recent recipes to show."
+    );
   }
 });
 
