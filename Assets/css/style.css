@@ -95,6 +95,18 @@ aside {
 .card {
   margin: 20px;
 }
+header#recentRecipeBanner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/banner.jpg");
+  /* Set a specific height */
+  height: 250px;
+  opacity: 0.9;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 20px;
+}
 
 /* Set the size of the div element that contains the map */
 #map {
