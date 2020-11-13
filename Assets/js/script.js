@@ -70,6 +70,7 @@ $(".sidenav-trigger").on("click", function () {
 $("#search_button").on("click", function (e) {
   e.preventDefault();
   ourRecipesArray = [];
+  $("#grocery_tohide").text("Press the red button to see ingredients!");
   let meal = $("#recipe_input").val().trim();
   if (meal === "") {
     $("#search_alert").text("Please enter a recipe, ingredient, or keyword");
@@ -109,9 +110,9 @@ $(":button").on("click", function (event) {
   $("#grocery_ul").empty();
   let currentId = $(this).attr("id");
   if (currentId === "ingredient_list") {
-    $("#grocery_tohide").empty();
     let curRecipe = $(this).val();
     let curRecipeObj = ourRecipesArray[curRecipe];
+    $("#grocery_tohide").text(curRecipeObj.name);
     favRecipes.splice(0, 0, curRecipeObj);
     localStorage.setItem("favRecipes", JSON.stringify(favRecipes));
     for (let i = 0; i < curRecipeObj.ingredients.length; i++) {

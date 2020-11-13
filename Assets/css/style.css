@@ -336,6 +336,13 @@ main#mainStoreLocator {
   padding: 0px;
 }
 
+#store_list_h {
+  color: white;
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+}
+
 div#name {
   height: 50px;
   background-color: rgb(63, 62, 62);
