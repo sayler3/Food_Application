@@ -165,7 +165,7 @@ var displayStores = function (resultArray) {
   }
   for (var i = 0; i < resultArray.length; i++) {
     $("#store_list").append(
-      `<li id="name">${resultArray[i].name} , Is your store open?: ${resultArray[i].is_open}, address: ${resultArray[i].address}<\div>`
+      `<div id="name">${resultArray[i].name} , Is your store open?: ${resultArray[i].is_open}, address: ${resultArray[i].address}<\div>`
     );
   }
 };
