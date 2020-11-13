@@ -61,10 +61,12 @@ const getRecipes = function (meal, url) {
 // EVENT LISTENERS
 $("#open_form_button").on("click", function () {
   $("#searchForm").modal();
+  $("#recipe_options").addClass("hide");
 });
 
-$(".sidenav-trigger").on("click", function () {
-  $(".sidenav").sidenav();
+$("#clear_form_button").on("click", function () {
+  // TO DO reset form here
+  $("#searchRecipeForm").reset();
 });
 
 $(".sidenav-trigger").on("click", function () {
