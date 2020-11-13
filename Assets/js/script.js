@@ -91,7 +91,11 @@ $("#search_button").on("click", function (e) {
       for (var i = 0; i < allCheckedBoxes.length; i++) {
         var id = allCheckedBoxes[i].getAttribute("id");
         var apiParameter = allCheckedBoxes[i].getAttribute("apiParameter");
-        url += "&health=" + apiParameter;
+        if (id === "dietParameter") {
+          url += "&diet=" + apiParameter;
+        } else if (id === "healthParameter") {
+          url += "&health=" + apiParameter;
+        }
       }
     }
     // fetch recipes

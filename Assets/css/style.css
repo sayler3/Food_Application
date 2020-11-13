@@ -10,6 +10,10 @@ main {
   flex: 1 0 auto;
 }
 
+.red-text {
+  color: #bf4342 !important;
+}
+
 /* The hero image */
 .banner-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -40,13 +44,13 @@ main {
   outline: 0;
   display: inline-block;
   color: black;
-  background-color: #dde8b9;
+  background-color: #ffd5d5;
   text-align: center;
   cursor: pointer;
 }
 
 .hero-text button:hover {
-  background-color: #c9d3a8;
+  background-color: #ffacac;
   transform: scale(1.1);
   transition: 0.2s;
 }
@@ -55,7 +59,28 @@ main {
   width: 90% !important ;
   height: 70% !important ;
   padding: 10px;
+  opacity: 1 !important;
 }
+
+.input-field p,
+.input-field .select-wrapper,
+.text-inline {
+  display: inline-block;
+  clear: both;
+  float: none;
+}
+
+input[type="text"] {
+  padding: 12px 20px !important;
+  margin: 8px 0 !important;
+  box-sizing: border-box !important;
+  border: 2px solid red !important;
+  border-radius: 4px !important;
+}
+input[type="text"]:focus {
+  border: 3px solid #555;
+}
+
 .modal button {
   border: none;
   outline: 0;
@@ -65,14 +90,6 @@ main {
   text-align: center;
   cursor: pointer;
   margin-left: 30px;
-}
-
-#recipe_input {
-  background-color: lightgray;
-  color: black;
-  padding-left: 10px;
-  width: 40%;
-  margin-bottom: 15px;
 }
 
 content {
@@ -138,7 +155,8 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 15px;
   }
   h5,
@@ -164,7 +182,8 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 15px;
   }
   h5,
@@ -193,7 +212,8 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 17px;
   }
   h5,
@@ -219,7 +239,8 @@ footer {
   h3 {
     font-size: 21px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 17px;
   }
   h5,
@@ -245,7 +266,8 @@ footer {
   h3 {
     font-size: 25px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 19px;
   }
   h5,
@@ -271,7 +293,8 @@ footer {
   h3 {
     font-size: 25px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 19px;
   }
   h5,

@@ -48,55 +48,67 @@
         <h4>Look no further for what to cook, because here you can instantly find delicious recipes from the most
           popular cooking websites.</h4>
         <!-- Open Search Recipe Form Modal Trigger -->
-        <button data-target="searchForm" class="btn-large modal-trigger" id="open_form_button">Find a
-          Recipe</button>
+        <button data-target="searchForm" class="btn-large modal-trigger" id="open_form_button">Find something to cook
+        </button>
+
       </div>
       <!-- Modal Structure for the search form -->
-      <div id="searchForm" class="modal">
+      <div id="searchForm" class="modal grey lighten-4">
         <div class="modal-content black-text">
-          <h2 class="center-align">Find a Recipe</h2>
+          <h2 class="center-align">Find something to cook</h2>
+          <button id="close_modal">
+            <i class="material-icons">close</i>
+          </button>
+          <button class="btn-floating halfway-fab waves-effect waves-light grey" id="ingredient_list"
+            value="Clear filters"><i class="material-icons">clear</i>
+          </button>
           <!-- Added button to clear searches -->
           <div class="divider"></div>
           <br>
-          <h4>Enter a recipe, ingredient, or keyword</h4>
-          <form id="searchRecipeForm">
-            <div class="input-field"></div>
-            <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
-            <!-- notify user of invalid input -->
-            <h4 id="search_alert" class="red-text"></h4>
-            <!-- Button to submit recipe search -->
-            <button type="button" class="modal-close waves-effect waves-green btn-flat btn-large" id="search_button">
 
-              Find
-              a
-              recipe</button>
-            </br>
-            <h3>Refine Search</h3>
+          <form id="searchRecipeForm">
+            <div class="input-field col s12 inline">
+              <label>Enter a recipe, ingredient, or keyword</label>
+              <input type="text" id="recipe_input" placeholder="Enter a recipe, ingredient, or keyword..."
+                class="red-text"> <i class="material-icons prefix red-text">search</i></label>
+              <label class="label-icon" for="recipe_input"><i class="material-icons prefix red-text">search</i></label>
+              <!-- notify user of invalid input -->
+              <h4 id="search_alert" class="red-text"></h4>
+              <!-- Button to submit recipe search -->
+              <button type="button" class="modal-close waves-effect waves-green btn-flat btn-large" id="search_button">
+                Search</button>
+              <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a>
+              </br>
+            </div>
+            <p>Refine search by <span class="text-bold"><strong>Calories, Diet, Ingredients, Allergies</strong></span>
+            </p>
+            <label for="quantity">Quantity (between 1 and 5):</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5">
             <div class="row">
               <div class="col s6 m6 l6">
-                <h5>ALLERGY SPECIFIC</h5>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="alcohol-free" />
-                    <span>No Alcohol</span>
-                  </label>
-                </p>
+                <h5>Allergies</h5>
                 <p>
                   <label>
                     <input type="checkbox" id="healthParameter" apiParameter="peanut-free" />
-                    <span>No Peanuts</span>
+                    <span>Peanuts</span>
                   </label>
                 </p>
                 <p>
                   <label>
                     <input type="checkbox" id="healthParameter" apiParameter="tree-nut-free" />
-                    <span>No Tree Nuts</span>
+                    <span>Tree Nuts</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="alcohol-cocktail" />
+                    <span>Alcoholic Cocktails</span>
                   </label>
                 </p>
               </div>
 
               <div class="col s6 m6 l6">
-                <h5>DIET</h5>
+                <h5>Diets</h5>
                 <p>
                   <label>
                     <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
@@ -109,14 +121,56 @@
                     <span>Vegan</span>
                   </label>
                 </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="sugar-conscious" />
+                    <span>Low Sugar</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="alcohol-free" />
+                    <span>Alcohol-Free</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="healthParameter" apiParameter="immuno-supportive" />
+                    <span>Immunity</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="dietParameter" apiParameter="low-carb" />
+                    <span>low-carb</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="dietParameter" apiParameter="high-protein" />
+                    <span>high-protein</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input type="checkbox" id="dietParameter" apiParameter="low-fat" />
+                    <span>low-fat</span>
+                  </label>
+                </p>
+
+
+
               </div>
-
             </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+
+
+
+          </form>
+
         </div>
-
-        </form>
-
-      </div>
       </div>
       </div>
     </header>
@@ -147,10 +201,10 @@
 
                 <div class="card-content">
                   <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">
+                    <button>View Recipe</button>
+                  </a>
                 </div>
               </div>
             </div>
