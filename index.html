@@ -27,7 +27,6 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
           <li><a href="favorite_recipes.html">Recent Recipes</a></li>
-          <li><a href="grocery_list.html">Grocery List</a></li>
           <li><a href="stores_near_you.html">Stores Near You</a></li>
         </ul>
       </div>
@@ -37,7 +36,6 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="index.html">Home</a></li>
       <li><a href="favorite_recipes.html">Recent Recipes</a></li>
-      <li><a href="grocery_list.html">Grocery List</a></li>
       <li><a href="stores_near_you.html">Stores Near You</a></li>
     </ul>
   </header>
@@ -62,9 +60,13 @@
           <br>
           <h4>Enter a recipe, ingredient, or keyword</h4>
           <form id="searchRecipeForm">
+            <div class="input-field"></div>
             <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
+            <!-- notify user of invalid input -->
+            <h4 id="search_alert" class="red-text"></h4>
             <!-- Button to submit recipe search -->
             <button type="button" class="modal-close waves-effect waves-green btn-flat btn-large" id="search_button">
+
               Find
               a
               recipe</button>
@@ -391,7 +393,6 @@
           <h5 class="white-text">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="grocery_list.html">Grocery List</a></li>
             <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
@@ -399,7 +400,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © 2014 Copyright Text
+        © 2020 Copyright Text
         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>

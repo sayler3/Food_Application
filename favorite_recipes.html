@@ -27,7 +27,6 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
           <li><a href="favorite_recipes.html">Recent Recipes</a></li>
-          <li><a href="grocery_list.html">Grocery List</a></li>
           <li><a href="stores_near_you.html">Stores Near You</a></li>
         </ul>
       </div>
@@ -37,15 +36,17 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="index.html">Home</a></li>
       <li><a href="favorite_recipes.html">Recent Recipes</a></li>
-      <li><a href="grocery_list.html">Grocery List</a></li>
       <li><a href="stores_near_you.html">Stores Near You</a></li>
     </ul>
   </header>
 
   <!-- Insert MAIN CONTENT HERE -->
   <main>
-    <div class="container">
-      <h1 class="valign center" id="rec_recipes">Your Recently Searched Recipes</h1>
+    <header id="recentRecipeBanner">
+      <h1 class="storeLocatorStyle">Recent Recipes</h1>
+      <p id="storeLocatorP">See your recently searched recipes!</p>
+    </header>
+    <div class="container" id="rec_recipes">
       <content class="col s12 m9 l8">
         <div class="row" id="fav_recipe_cards">
         </div>
@@ -65,7 +66,6 @@
           <h5 class="white-text">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
-            <li><a class="grey-text text-lighten-3" href="grocery_list.html">Grocery List</a></li>
             <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>

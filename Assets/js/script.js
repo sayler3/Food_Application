@@ -58,6 +58,7 @@ const getRecipes = function (meal, url) {
 
 // EVENT LISTENERS
 $("#open_form_button").on("click", function () {
+  $("#search_alert").text(" ");
   $("#searchForm").modal();
   $("#recipe_options").addClass("hide");
 });
@@ -71,7 +72,7 @@ $("#search_button").on("click", function (e) {
   ourRecipesArray = [];
   let meal = $("#recipe_input").val().trim();
   if (meal === "") {
-    alert("Please input a Value");
+    $("#search_alert").text("Please enter a recipe, ingredient, or keyword");
     return false;
   } else {
     $("#searchForm").modal("close");
