@@ -16,13 +16,11 @@ const getRecipes = function (meal, url) {
     response
       .json()
       .then(function (data) {
-        var results_count = data.count;
-
-        $("#recipe_options").prepend(
-          `<h2>${meal} recipes <span class="results_count">${results_count} results</span></h2>`
-        );
-        console.log("Total Results: " + data.count);
         console.log(data);
+        document.querySelector("#search_term").textContent = meal + " recipes";
+        document.querySelector(".results_count").textContent =
+          data.count + " results";
+        console.log("Total Results: " + data.count);
 
         // we will create an array of objects containing the data that we are interested in
         // var ourRecipesArray = []; // my array
@@ -64,17 +62,13 @@ $("#open_form_button").on("click", function () {
   $("#recipe_options").addClass("hide");
 });
 
-$("#clear_form_button").on("click", function () {
-  // TO DO reset form here
-  $("#searchRecipeForm").reset();
-});
-
 $(".sidenav-trigger").on("click", function () {
   $(".sidenav").sidenav();
 });
 
 $("#search_button").on("click", function (e) {
   e.preventDefault();
+  ourRecipesArray = [];
   let meal = $("#recipe_input").val().trim();
   if (meal === "") {
     alert("Please input a Value");
@@ -96,17 +90,8 @@ $("#search_button").on("click", function (e) {
       for (var i = 0; i < allCheckedBoxes.length; i++) {
         var id = allCheckedBoxes[i].getAttribute("id");
         var apiParameter = allCheckedBoxes[i].getAttribute("apiParameter");
-
-        if (id === "cuisineTypeParameter") {
-          url += "&cuisineType=" + apiParameter;
-        } else if (id === "dishTypeParameter") {
-          url += "&dishType=" + apiParameter;
-        } else if (id === "healthParameter") {
-          url += "&health=" + apiParameter;
-        }
+        url += "&health=" + apiParameter;
       }
-    } else {
-      return;
     }
     // fetch recipes
     getRecipes(meal, url);
@@ -119,6 +104,7 @@ $(":button").on("click", function (event) {
   $("#grocery_ul").empty();
   let currentId = $(this).attr("id");
   if (currentId === "ingredient_list") {
+    $("#grocery_tohide").empty();
     let curRecipe = $(this).val();
     let curRecipeObj = ourRecipesArray[curRecipe];
     favRecipes.splice(0, 0, curRecipeObj);
@@ -200,6 +186,7 @@ $("#fav_recipe_cards").ready(function () {
 function printRecipeOptions(resultArray) {
   // remove the class="hide" on the container with the id="recipe_options"
   $("#recipe_options").removeClass("hide");
+  $("#grocery_aside").removeClass("hide");
 
   // Setting the recipe name and src attribute of the recipe image
   var allRecipeNameEl = document.querySelectorAll("#recipe_name");

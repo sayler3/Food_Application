@@ -164,8 +164,11 @@ var displayStores = function (resultArray) {
     return;
   }
   for (var i = 0; i < resultArray.length; i++) {
-    $("#store_list").append(
-      `<div id="name">${resultArray[i].name} , Is your store open?: ${resultArray[i].is_open}, address: ${resultArray[i].address}<\div>`
-    );
+    if (resultArray[i].is_open === true) {
+      $("#store_list").append(
+        `<div id="name">${resultArray[i].name} , address: ${resultArray[i].address}<\div>`
+      );
+      console.log(resultArray[i].is_open);
+    }
   }
 };

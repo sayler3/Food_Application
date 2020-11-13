@@ -57,24 +57,21 @@
       <div id="searchForm" class="modal">
         <div class="modal-content black-text">
           <h2 class="center-align">Find a Recipe</h2>
+          <!-- Added button to clear searches -->
           <div class="divider"></div>
           <br>
           <h4>Enter a recipe, ingredient, or keyword</h4>
           <form id="searchRecipeForm">
             <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
+            <!-- Button to submit recipe search -->
+            <button type="button" class="modal-close waves-effect waves-green btn-flat btn-large" id="search_button">
+              Find
+              a
+              recipe</button>
             </br>
             <h3>Refine Search</h3>
             <div class="row">
-              <div class="col s6 m3 l3">
-                <h5>DISH</h5>
-                <p>
-                  <label>
-                    <input type="checkbox" id="dishTypeParameter" apiParameter="Alcohol-cocktail" />
-                    <span>Cocktails</span>
-                  </label>
-                </p>
-              </div>
-              <div class="col s6 m3 l3">
+              <div class="col s6 m6 l6">
                 <h5>ALLERGY SPECIFIC</h5>
                 <p>
                   <label>
@@ -96,7 +93,7 @@
                 </p>
               </div>
 
-              <div class="col s6 m3 l3">
+              <div class="col s6 m6 l6">
                 <h5>DIET</h5>
                 <p>
                   <label>
@@ -110,37 +107,14 @@
                     <span>Vegan</span>
                   </label>
                 </p>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
-                    <span>Vegetarian</span>
-                  </label>
-                </p>
               </div>
 
-              <div class="col s6 m3 l3">
-                <h5>CUISINE</h5>
-                <p>
-                  <label>
-                    <input type="checkbox" id="searchFilter" />
-                    <span apiParameter="mexican">Mexican</span>
-                  </label>
-                </p>
-              </div>
             </div>
-
-            <div class="row">
-              <div class="col-12">
-                <!-- Button to submit recipe search -->
-                <button type="button" class="modal-close waves-effect waves-green btn-flat" id="search_button"> Find a
-                  recipe</button>
-                <!-- Added button to clear searches -->
-                <button class="btn-large" id="clear_form_button">Clear Search</button>
-              </div>
-            </div>
-          </form>
-
         </div>
+
+        </form>
+
+      </div>
       </div>
       </div>
     </header>
@@ -151,12 +125,16 @@
       8-columns-wide on medium screens,
       12-columns-wide on small screens -->
       <content class="col s12 m9 l8">
+
         <div class="container hide" id="recipe_options">
+          <h2 id="search_term"></h2>
+          <p class="results_count"></p>
+
           <div class="row">
             <!-- Recipe Options Content starts here -->
             <!-- ADDED ID TO OTHER BUTTON IN EACH RECIPE -->
             <!-- recipe #1 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -164,6 +142,7 @@
                       class="material-icons">add</i>
                   </button>
                 </div>
+
                 <div class="card-content">
                   <h5 id="recipe_name"></h5>
                   <p id="source"></p>
@@ -175,7 +154,7 @@
             </div>
 
             <!-- recipe #2 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -194,7 +173,7 @@
             </div>
 
             <!-- recipe #3 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -213,7 +192,7 @@
             </div>
 
             <!-- recipe #4 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -232,7 +211,7 @@
             </div>
 
             <!-- recipe #5 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -251,7 +230,7 @@
             </div>
 
             <!-- recipe #6 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -270,7 +249,7 @@
             </div>
 
             <!-- recipe #7 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -289,7 +268,7 @@
             </div>
 
             <!-- recipe #8 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -308,7 +287,7 @@
             </div>
 
             <!-- recipe #9 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -327,7 +306,7 @@
             </div>
 
             <!-- recipe #10 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -346,7 +325,7 @@
             </div>
 
             <!-- recipe #11 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -365,7 +344,7 @@
             </div>
 
             <!-- recipe #12 -->
-            <div class="col s6 m4 l4">
+            <div class="card-col">
               <div class="card hoverable">
                 <div class="card-image">
                   <img id="recipe_img">
@@ -392,8 +371,9 @@
         4-columns-wide on medium screens,
         12-columns-wide on small screens -->
       <!-- JR UPDATED HERE TO CREATE LIST -->
-      <aside class="col s12 m3 l4">
-        <h4>Grocery List</h4>
+      <aside class="col s12 m3 l4 container hide" id="grocery_aside">
+        <h4 class="center-align">Grocery List</h4>
+        <div class="center-align" id="grocery_tohide">Press the red button to see ingredients!</div>
         <ul class="collection with-header" id="grocery_ul">
         </ul>
       </aside>
