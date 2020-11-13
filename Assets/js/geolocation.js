@@ -165,15 +165,16 @@ var displayStores = function (resultArray) {
     return;
   }
   else {
+    openStores = [];
     for (var i = 0; i < resultArray.length; i++) {
-      if (resultArray[i].is_open === true) {
+      if (resultArray[i].is_open === false) {
         $("#store_list").append(
           `<div id="name">${resultArray[i].name} , address: ${resultArray[i].address}<\div>`
         );
-        console.log(resultArray[i].is_open);
+        openStores.push(resultArray[i])
       }
     }
-    if ($("#store_list").length === 1) {
+    if (openStores.length === 0) {
       $("#store_list_h").text("Sorry no stores are currently open in your area.")
     }
     $("#store_list_h").removeClass("hide")
