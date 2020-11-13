@@ -16,6 +16,7 @@
   <!-- Link to custom stylesheet -->
   <link rel="stylesheet" href="Assets/css/style.css">
   </link>
+  
 </head>
 
 <body>
@@ -28,7 +29,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
-          <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+          <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
           <li><a href="grocery_list.html">Grocery List</a></li>
           <li><a href="stores_near_you.html">Stores Near You</a></li>
         </ul>
@@ -38,7 +39,7 @@
     <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="index.html">Home</a></li>
-      <li><a href="favorite_recipes.html">Recent Recipes</a></li>
+      <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
       <li><a href="grocery_list.html">Grocery List</a></li>
       <li><a href="stores_near_you.html">Stores Near You</a></li>
     </ul>
@@ -46,20 +47,16 @@
 
   <!-- Insert MAIN CONTENT HERE -->
 
-  <main>
-    <h1 class="center-align">This is the grocery store locator</h1>
-    <div class="row">
-      <!-- Column holds the map -->
-      <div class="col s12 m8 l8">
-        <div id="map"></div>
-        <div id="loading"></div>
-      </div>
-      <div class="col s12 m4 l4">
-        <h3 class="center-align">Stores Near You</h3>
-        <ol id="store_list">
-          <!-- store location info will be shown here -->
-        </ol>
-      </div>
+  <main id="mainStoreLocator">
+    <header id = "storeLocatorBanner">
+      <h1 class="storeLocatorStyle">Locate a store near you</h1>
+      <p id="storeLocatorP">Scroll down below the map to view local grocery stores <br>  & supermakets in your area. Enjoy!</p>
+    </header>
+    <div class="container">
+      <div id="map"></div>
+      <ol id="store_list"></ol>
+
+    </div>
   </main>
 
   <!-- Footer Section  -->
