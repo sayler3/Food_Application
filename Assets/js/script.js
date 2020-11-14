@@ -78,6 +78,20 @@ const getRecipes = function (url) {
               allRecipeCaloriesEl[i].textContent = cal_per_serv;
               allRecipeIngr[i].textContent =
                 ourRecipesArray[i].ingredients.length;
+              if (cal_per_serv <= 300) {
+                allRecipeCaloriesEl[i].classList.add("low-marker");
+              } else if (cal_per_serv <= 700) {
+                allRecipeCaloriesEl[i].classList.add("med-marker");
+              } else {
+                allRecipeCaloriesEl[i].classList.add("high-marker");
+              }
+              if (ourRecipesArray[i].ingredients.length <= 5) {
+                allRecipeIngr[i].classList.add("low-marker");
+              } else if (ourRecipesArray[i].ingredients.length <= 15) {
+                allRecipeIngr[i].classList.add("med-marker");
+              } else {
+                allRecipeIngr[i].classList.add("high-marker");
+              }
             }
           } else {
             // We use "ourRecipesArray" to print the results to the screen
@@ -277,6 +291,20 @@ $("#fav_recipe_cards").ready(function () {
       var cal_per_serv = parseInt(calories / servings);
       allRecipeCalories_r[i].textContent = cal_per_serv;
       allRecipeIngrCounts_r[i].textContent = favRecipes[i].ingredients.length;
+      if (cal_per_serv <= 300) {
+        allRecipeCalories_r[i].classList.add("low-marker");
+      } else if (cal_per_serv <= 700) {
+        allRecipeCalories_r[i].classList.add("med-marker");
+      } else {
+        allRecipeCalories_r[i].classList.add("high-marker");
+      }
+      if (favRecipes[i].ingredients.length <= 5) {
+        allRecipeIngrCounts_r[i].classList.add("low-marker");
+      } else if (favRecipes[i].ingredients.length <= 15) {
+        allRecipeIngrCounts_r[i].classList.add("med-marker");
+      } else {
+        allRecipeIngrCounts_r[i].classList.add("high-marker");
+      }
     }
 
     allRecipeNameEl_r[0].textContent = favRecipes[0].name;
@@ -314,13 +342,20 @@ function printRecipeOptions(resultArray) {
     var servings = resultArray[i].yield;
     var cal_per_serv = parseInt(calories / servings);
     allRecipeCaloriesEl[i].textContent = cal_per_serv;
-    allRecipeIngr[i].textContent = ourRecipesArray[i].ingredients.length;
-
-    // if (resultArray[i].healthLabels.length) {
-    //   allRecipeHealthLabels.classList.remove("hide");
-    //   allRecipeHealthLabels.textContent
-    //     `<button>${max_num_ingredients} or less ingredients</button>`
-    //   );
-    // }
+    allRecipeIngr[i].textContent = resultArray[i].ingredients.length;
+    if (cal_per_serv <= 300) {
+      allRecipeCaloriesEl[i].classList.add("low-marker");
+    } else if (cal_per_serv <= 700) {
+      allRecipeCaloriesEl[i].classList.add("med-marker");
+    } else {
+      allRecipeCaloriesEl[i].classList.add("high-marker");
+    }
+    if (resultArray[i].ingredients.length <= 5) {
+      allRecipeIngr[i].classList.add("low-marker");
+    } else if (resultArray[i].ingredients.length <= 15) {
+      allRecipeIngr[i].classList.add("med-marker");
+    } else {
+      allRecipeIngr[i].classList.add("high-marker");
+    }
   }
 }

@@ -212,7 +212,7 @@ aside {
 #rec_recipes p {
   font-style: italic;
   font-weight: bolder;
-  margin-bottom: 12px !important;
+  margin-bottom: 17px !important;
 }
 #recipe_options span,
 #rec_recipes span {
@@ -250,6 +250,28 @@ aside {
   border: none !important;
   border-radius: 5px !important;
 }
+.low-marker {
+  background-color: #34a853;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.med-marker {
+  background-color: #fbbc05;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.high-marker {
+  background-color: #f65314;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
 #grocery_aside h2 {
   font-weight: bolder;
 }
