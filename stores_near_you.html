@@ -43,21 +43,25 @@
     </ul>
   </header>
 
-  <!-- Insert MAIN CONTENT HERE -->
-
+  <!-- MAIN CONTENT HERE -->
   <main id="mainStoreLocator">
     <header id="storeLocatorBanner">
       <h1 class="storeLocatorStyle">Locate a store near you</h1>
       <p id="storeLocatorP">Scroll down below the map to view local grocery stores <br> & supermakets in your area.
         Enjoy!</p>
     </header>
-    <div class="container">
-      <div id="map"></div>
-      <br>
-      <h3 id="store_list_h" class="container hide">These are the grocery stores near you that are open now: </h3>
-      <br>
-      <ol id="store_list"></ol>
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col s12 m12 l8">
+          <div id="map"></div>
+        </div>
+        <div class="col s12 m12 l4">
+          <h3 id="store_list_h" class="container hide">Grocery stores near you that are open now: </h3>
+          <br />
+          <ol id="store_list"></ol>
+        </div>
+      </div>
     </div>
   </main>
 
