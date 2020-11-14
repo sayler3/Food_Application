@@ -47,6 +47,7 @@ main {
   background-color: #ffd5d5;
   text-align: center;
   cursor: pointer;
+  height: 100%;
 }
 
 .hero-text button:hover {
@@ -54,42 +55,76 @@ main {
   transform: scale(1.1);
   transition: 0.2s;
 }
-
+/* Styling the pop-up modal with the search form */
 .modal {
   width: 90% !important ;
   height: 70% !important ;
-  padding: 10px;
   opacity: 1 !important;
-}
-
-.input-field p,
-.input-field .select-wrapper,
-.text-inline {
-  display: inline-block;
-  clear: both;
-  float: none;
-}
-
-input[type="text"] {
-  padding: 12px 20px !important;
-  margin: 8px 0 !important;
-  box-sizing: border-box !important;
-  border: 2px solid red !important;
-  border-radius: 4px !important;
-}
-input[type="text"]:focus {
-  border: 3px solid #555;
+  background-color: white !important;
 }
 
 .modal button {
-  border: none;
+  border: none !important;
   outline: 0;
   display: inline-block;
-  color: black;
-  background-color: #ddd;
+  color: white;
+  background-color: #862e2e;
   text-align: center;
   cursor: pointer;
-  margin-left: 30px;
+}
+
+.modal button:hover {
+  background-color: #bf4342;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+/* Styling the inputs in the recipe search form */
+input[type="text"] {
+  padding: 12px 5px !important;
+  box-sizing: border-box !important;
+  border: 1px solid grey !important;
+  border-radius: 0px !important;
+  /* width: 100% !important; */
+  margin-bottom: 0px;
+}
+
+input[type="number"] {
+  padding: 12px 5px !important;
+  margin: 5px 5px !important;
+  box-sizing: border-box !important;
+  border: 1px solid grey !important;
+  border-radius: 0px !important;
+  width: 50px !important;
+}
+
+label {
+  font-weight: 500;
+  color: #302e30 !important;
+}
+
+/* changing color of placeholder text in input fields */
+::placeholder {
+  color: darkslategray;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: gray;
+  font-size: 13px;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: gray;
+  font-size: 13px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border: 3px solid #555;
+  box-shadow: none !important;
 }
 
 content {
@@ -112,6 +147,7 @@ aside {
 .card {
   margin: 20px;
 }
+
 header#recentRecipeBanner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/banner.jpg");
@@ -160,7 +196,8 @@ footer {
     font-size: 15px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 12px;
   }
   .img-container .list-group-item {
@@ -187,7 +224,8 @@ footer {
     font-size: 15px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 12px;
   }
   li {
@@ -217,7 +255,8 @@ footer {
     font-size: 17px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 14px;
   }
   .img-container .list-group-item {
@@ -244,7 +283,8 @@ footer {
     font-size: 17px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 14px;
   }
   .img-container .list-group-item {
@@ -271,7 +311,8 @@ footer {
     font-size: 19px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 15px;
   }
   .img-container .list-group-item {
@@ -298,7 +339,8 @@ footer {
     font-size: 19px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 18px;
   }
   .img-container .list-group-item {

@@ -86,6 +86,21 @@ $("#search_button").on("click", function (e) {
       app_key +
       "&from=0&to=12";
 
+    let max_num_ingredients = $("#max_ingredients_input").val().trim();
+    if (max_num_ingredients === "") {
+      return;
+    } else {
+      url += "&ingr=" + max_num_ingredients;
+    }
+
+    let min_calories = $("#min_calories").val().trim();
+    let max_calories = $("#max_calories").val().trim();
+    if (min_calories === "" && max_calories === "") {
+      return;
+    } else {
+      url += "&calories=" + min_calories + "-" + max_calories;
+    }
+
     // check if filters are added
     var allCheckedBoxes = $("input[type=checkbox]:checked");
     if (allCheckedBoxes.length) {
@@ -99,6 +114,7 @@ $("#search_button").on("click", function (e) {
         }
       }
     }
+
     // fetch recipes
     getRecipes(meal, url);
     console.log("Fetching results with the url: " + url);
