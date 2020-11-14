@@ -99,9 +99,7 @@ window.initMap = function () {
                 "</h3>" +
                 '<div id="bodyContent">' +
                 "<p><b>Address: </b>" +
-                data.results[i].vicinity +
-                "</br>" +
-                "<b>Distance: </b>";
+                data.results[i].vicinity;
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
               });
@@ -125,6 +123,7 @@ window.initMap = function () {
                   infowindow.close();
                 }, 5000);
               });
+              infowindow.open(map, marker);
 
               store = {
                 name: data.results[i].name,
@@ -158,17 +157,26 @@ document.head.appendChild(script);
 var displayStores = function (resultArray) {
   // print store list to the screen
   if (resultArray.length === 0) {
-    $("#store_list").append(
-      `<p>There is no grocery stores within a 5,000 meter radius of your location</p>`
+    $("#store_list_h").text(
+      "There is no grocery stores within a 5,000 meter radius of your location"
     );
+    $("#store_list_h").removeClass("hide");
     return;
-  }
-  for (var i = 0; i < resultArray.length; i++) {
-    if (resultArray[i].is_open === true) {
-      $("#store_list").append(
-        `<div id="name">${resultArray[i].name} , address: ${resultArray[i].address}<\div>`
-      );
-      console.log(resultArray[i].is_open);
+  } else {
+    openStores = [];
+    for (var i = 0; i < resultArray.length; i++) {
+      if (resultArray[i].is_open === false) {
+        $("#store_list").append(
+          `<div id="name">${resultArray[i].name} , address: ${resultArray[i].address}<\div>`
+        );
+        openStores.push(resultArray[i]);
+      }
     }
+    if (openStores.length === 0) {
+      $("#store_list_h").text(
+        "Sorry no stores are currently open in your area."
+      );
+    }
+    $("#store_list_h").removeClass("hide");
   }
 };

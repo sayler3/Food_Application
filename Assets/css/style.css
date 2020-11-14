@@ -10,6 +10,10 @@ main {
   flex: 1 0 auto;
 }
 
+.red-text {
+  color: #bf4342 !important;
+}
+
 /* The hero image */
 .banner-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -39,62 +43,239 @@ main {
   border: none;
   outline: 0;
   display: inline-block;
-  color: black;
-  background-color: #dde8b9;
+  color: #862e2e;
+  font-weight: bolder;
+  background-color: #ffd5d5;
+  text-align: center;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px !important;
+}
+
+.hero-text button:hover {
+  background-color: #ffacac;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+/* Styling the pop-up modal with the search form */
+.modal {
+  width: 90% !important ;
+  height: 70% !important ;
+  opacity: 1 !important;
+  background-color: white !important;
+}
+
+.modal button {
+  border: none !important;
+  outline: 0;
+  display: inline-block;
+  color: white;
+  background-color: #862e2e;
   text-align: center;
   cursor: pointer;
 }
 
-.hero-text button:hover {
-  background-color: #c9d3a8;
+.modal button:hover {
+  background-color: #bf4342;
   transform: scale(1.1);
   transition: 0.2s;
 }
 
-.modal {
-  width: 90% !important ;
-  height: 70% !important ;
-  padding: 10px;
-}
-.modal button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-  margin-left: 30px;
+/* Styling the inputs in the recipe search form */
+input[type="text"] {
+  padding: 12px 5px !important;
+  box-sizing: border-box !important;
+  border: 1px solid grey !important;
+  border-radius: 0px !important;
+  /* width: 100% !important; */
+  margin-bottom: 0px;
 }
 
-#recipe_input {
-  background-color: lightgray;
-  color: black;
-  padding-left: 10px;
-  width: 40%;
-  margin-bottom: 15px;
+input[type="number"] {
+  padding: 12px 5px !important;
+  margin: 5px 5px !important;
+  box-sizing: border-box !important;
+  border: 1px solid grey !important;
+  border-radius: 0px !important;
+  width: 50px !important;
+}
+
+label {
+  font-weight: 500;
+  color: #302e30 !important;
+}
+
+/* changing color of placeholder text in input fields */
+::placeholder {
+  color: darkslategray;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: gray;
+  font-size: 13px;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: gray;
+  font-size: 13px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border: 3px solid #555;
+  box-shadow: none !important;
 }
 
 content {
-  background-color: lightgray;
+  background-color: #e9ecef;
+  height: 100%;
 }
+
+#recipe_options,
+#rec_recipes {
+  padding: 10px;
+}
+
 span.results_count {
   font-style: italic;
 }
 
 aside {
   background-color: white;
-  height: 300px;
+  height: 100%;
 }
-
-.card-col {
-  float: left;
+.filter_input button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  color: darkslategray;
+  background-color: #ffd5d5;
   text-align: center;
+  cursor: pointer;
+  height: 100%;
+}
+.filter_input button:hover {
+  background-color: #ffacac;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .card {
-  margin: 20px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  height: 100%;
+  margin-bottom: 10px !important;
+  min-height: 500px;
 }
+.card-content {
+  padding: 5px !important;
+}
+
+#recipe_options,
+#rec_recipes {
+  text-align: center;
+}
+
+#recipe_options .btn-floating {
+  border: none !important;
+  outline: 0;
+  display: inline-block;
+  color: white;
+  background-color: #bf4342 !important;
+  text-align: center;
+  cursor: pointer;
+}
+#recipe_options .btn-floating:hover {
+  background-color: #862e2e !important;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+#rec_recipes a,
+#recipe_options a {
+  background-color: #ffd5d5 !important;
+  padding: 10px !important;
+  color: #862e2e;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+#recipe_options a:hover,
+#rec_recipes a:hover {
+  background-color: #ffacac !important;
+  padding: 10px !important;
+  color: #862e2e;
+  margin-top: 50px !important;
+}
+#recipe_options p,
+#rec_recipes p {
+  font-style: italic;
+  font-weight: bolder;
+  margin-bottom: 17px !important;
+}
+#recipe_options span,
+#rec_recipes span {
+  font-style: italic;
+  font-weight: normal;
+}
+
+#recipe_options h4,
+#rec_recipes h4 {
+  text-transform: uppercase;
+  color: #862e2e;
+  font-weight: bolder;
+}
+
+#content_header {
+  text-align: center;
+}
+
+#content_header h4 {
+  text-transform: capitalize;
+  font-style: italic;
+  font-weight: bold;
+}
+#content_header h2 {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+#content_header button {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: #862e2e;
+  color: white;
+  border: none !important;
+  border-radius: 5px !important;
+}
+.low-marker {
+  background-color: #34a853;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.med-marker {
+  background-color: #fbbc05;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.high-marker {
+  background-color: #f65314;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+#grocery_aside h2 {
+  font-weight: bolder;
+}
+
 header#recentRecipeBanner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/banner.jpg");
@@ -113,12 +294,12 @@ header#recentRecipeBanner {
   height: 500px; /* The height is 500 pixels */
   width: 100%; /* The width is the width of the web page */
   display: block;
+  margin-bottom: 20px;
 }
 
 /* Styling for the footer */
 footer {
-  /* margin-top: 50px; */
-  /* position: relative; */
+  margin-top: 0px !important;
   bottom: 0;
   width: 100%;
 }
@@ -138,19 +319,18 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 15px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 12px;
   }
   .img-container .list-group-item {
     font-size: 11px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 50%;
   }
 }
 @media (min-width: 480px) {
@@ -164,11 +344,13 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 15px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 12px;
   }
   li {
@@ -177,9 +359,6 @@ footer {
   .img-container .list-group-item {
     font-size: 12px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 50%;
   }
 }
 @media (min-width: 600px) {
@@ -193,19 +372,18 @@ footer {
   h3 {
     font-size: 19px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 17px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 14px;
   }
   .img-container .list-group-item {
     font-size: 14px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 50%;
   }
 }
 @media (min-width: 801px) {
@@ -219,19 +397,18 @@ footer {
   h3 {
     font-size: 21px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 17px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 14px;
   }
   .img-container .list-group-item {
     font-size: 14px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 33.33%;
   }
 }
 @media (min-width: 1025px) {
@@ -245,19 +422,18 @@ footer {
   h3 {
     font-size: 25px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 19px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 15px;
   }
   .img-container .list-group-item {
     font-size: 15px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 33.33%;
   }
 }
 @media (min-width: 1281px) {
@@ -271,19 +447,18 @@ footer {
   h3 {
     font-size: 25px;
   }
-  h4 {
+  h4,
+  label {
     font-size: 19px;
   }
   h5,
-  span {
+  span,
+  ::placeholder {
     font-size: 18px;
   }
   .img-container .list-group-item {
     font-size: 18px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 33.33%;
   }
 }
 
@@ -313,6 +488,13 @@ main#mainStoreLocator {
   padding: 0px;
 }
 
+#store_list_h {
+  color: white;
+  text-align: left;
+  margin: 0px;
+  padding: 0px;
+}
+
 div#name {
   height: 50px;
   background-color: rgb(63, 62, 62);
@@ -323,10 +505,10 @@ div#name {
   border-radius: 5px;
   border-style: solid;
   border-width: thin;
-  border-color: black;
+  border-color: darkslategray;
   text-align: center;
   font-style: italic;
-  box-shadow: 2px 2px black;
+  box-shadow: 2px 2px darkslategray;
 }
 div#name:hover {
   color: #bf4342;

@@ -44,79 +44,129 @@
   <main>
     <header class="banner-image">
       <div class="hero-text">
-        <h1>Hello There, Welcome to Recipe Pal</h1>
+        <h1>Welcome to Recipe Pal</h1>
         <h4>Look no further for what to cook, because here you can instantly find delicious recipes from the most
           popular cooking websites.</h4>
+        <br>
         <!-- Open Search Recipe Form Modal Trigger -->
-        <button data-target="searchForm" class="btn-large modal-trigger" id="open_form_button">Find a
-          Recipe</button>
+        <button data-target="searchForm" class="btn modal-trigger" id="open_form_button">Find something to cook
+        </button>
       </div>
       <!-- Modal Structure for the search form -->
       <div id="searchForm" class="modal">
-        <div class="modal-content black-text">
-          <h2 class="center-align">Find a Recipe</h2>
+        <div class="modal-content">
+          <h2 class="center-align">Find something to cook</h2>
           <!-- Added button to clear searches -->
           <div class="divider"></div>
-          <br>
-          <h4>Enter a recipe, ingredient, or keyword</h4>
+          <br />
+
+          <!--recipe search form -->
           <form id="searchRecipeForm">
-            <div class="input-field"></div>
-            <input type="text" placeholder="Enter a recipe, ingredient, or keyword... " id="recipe_input" />
+            <h3><strong>Enter a recipe, ingredient, or keyword</strong></h3>
             <!-- notify user of invalid input -->
             <h4 id="search_alert" class="red-text"></h4>
-            <!-- Button to submit recipe search -->
-            <button type="button" class="modal-close waves-effect waves-green btn-flat btn-large" id="search_button">
-
-              Find
-              a
-              recipe</button>
-            </br>
-            <h3>Refine Search</h3>
-            <div class="row">
-              <div class="col s6 m6 l6">
-                <h5>ALLERGY SPECIFIC</h5>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="alcohol-free" />
-                    <span>No Alcohol</span>
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="peanut-free" />
-                    <span>No Peanuts</span>
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="tree-nut-free" />
-                    <span>No Tree Nuts</span>
-                  </label>
-                </p>
-              </div>
-
-              <div class="col s6 m6 l6">
-                <h5>DIET</h5>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
-                    <span>Vegetarian</span>
-                  </label>
-                </p>
-                <p>
-                  <label>
-                    <input type="checkbox" id="healthParameter" apiParameter="vegan" />
-                    <span>Vegan</span>
-                  </label>
-                </p>
-              </div>
-
+            <!-- input for user to search -->
+            <div class="input-field col s12">
+              <input type="text" id="recipe_input" placeholder="e.g., apple pie, baked chicken, ceaser salad">
             </div>
+
+            <h4>Refine search by <strong>Diet, Calories, Ingredients, Allergies</strong></h4>
+            <!-- input for number of ingredients and calories -->
+            <div class="row">
+              <div class="col s6">
+                <label for="ingredients">Ingredients </label>
+                <input type="number" id="max_ingredients_input" placeholder="Up to">
+
+              </div>
+              <div class="col s6">
+                <label for="num_of_calories">Calories </label>
+                <input type="number" id="min_calories" placeholder="From" min="1" max="500000">
+                <input type="number" id="max_calories" placeholder="To" min="1" max="500000">
+
+              </div>
+            </div>
+
+            <!-- Diet Filters -->
+            <h4><strong>Diets</strong></h4>
+            <div class="row">
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="vegetarian" />
+                  <span>Vegetarian</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="vegan" />
+                  <span>Vegan</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="dietParameter" apiParameter="high-protein" />
+                  <span>High-Protein</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="dietParameter" apiParameter="low-carb" />
+                  <span>Low-Carb</span>
+                </label>
+              </div>
+
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="dietParameter" apiParameter="low-fat" />
+                  <span>Low-Fat</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="sugar-conscious" />
+                  <span>Low-Sugar</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="alcohol-free" />
+                  <span>Alcohol-Free</span>
+                </label>
+              </div>
+              <div class="col s6 m3">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="immuno-supportive" />
+                  <span>Immunity</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Allergy filters -->
+            <h4><strong>Allergies</strong></h4>
+            <div class="row">
+              <div class="col s6">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="peanut-free" />
+                  <span>Peanuts</span>
+                </label>
+              </div>
+              <div class="col s6">
+                <label>
+                  <input type="checkbox" id="healthParameter" apiParameter="tree-nut-free" />
+                  <span>Tree Nuts</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Button to submit recipe search -->
+            <div class="row">
+              <div class="col s12">
+                <button type="button" class="modal-close waves-effect btn right" id="search_button">
+                  Search</button>
+              </div>
+            </div>
+          </form>
+
         </div>
-
-        </form>
-
-      </div>
       </div>
       </div>
     </header>
@@ -126,245 +176,262 @@
       9-columns-wide on large screens,
       8-columns-wide on medium screens,
       12-columns-wide on small screens -->
-      <content class="col s12 m9 l8">
-
-        <div class="container hide" id="recipe_options">
+      <content class="col s12 m8">
+        <div class="hide" id="content_header">
           <h2 id="search_term"></h2>
-          <p class="results_count"></p>
+          <h4 class="results_count"></h4>
+          <div id="filter_input" class="hide"></div>
+        </div>
 
+        <!-- Recipe Options Content starts here -->
+        <!-- ADDED ID TO OTHER BUTTON IN EACH RECIPE -->
+        <div class="container-fluid hide" id="recipe_options">
           <div class="row">
-            <!-- Recipe Options Content starts here -->
-            <!-- ADDED ID TO OTHER BUTTON IN EACH RECIPE -->
             <!-- recipe #1 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=0><i
                       class="material-icons">add</i>
                   </button>
                 </div>
-
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #2 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=1><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=1><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #3 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=2><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=2><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #4 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=3><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=3><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <!-- recipe #5 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=4><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=4><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #6 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=5><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=5><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #7 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=6><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=6><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #8 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=7><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=7><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <!-- recipe #9 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=8><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=8><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #10 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=9><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=9><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #11 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6  l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=10><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=10><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #12 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=11><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=11><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p>Source: <span id="source"></span></p>
+                  <p>Calories: <span id="calories"></span></p>
+                  <p>Ingredients: <span id="ingredient_cnt"></span></p>
+                  <div id="health_labels" class="hide"></div>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
-
           </div>
+
         </div>
       </content>
 
@@ -373,8 +440,8 @@
         4-columns-wide on medium screens,
         12-columns-wide on small screens -->
       <!-- JR UPDATED HERE TO CREATE LIST -->
-      <aside class="col s12 m3 l4 container hide" id="grocery_aside">
-        <h4 class="center-align">Grocery List</h4>
+      <aside class="col s12 m4 container hide" id="grocery_aside">
+        <h2 class="center-align">Grocery List</h2>
         <div class="center-align" id="grocery_tohide">Press the red button to see ingredients!</div>
         <ul class="collection with-header" id="grocery_ul">
         </ul>
@@ -386,22 +453,18 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <h3 class="white-text">Recipe Pal</h3>
+          <div>
+            © 2020 Copyright
+          </div>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Recent Recipes</a></li>
             <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2020 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>

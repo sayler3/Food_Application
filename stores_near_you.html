@@ -29,7 +29,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
-          <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
+          <li><a href="favorite_recipes.html">Recent Recipes</a></li>
           <li><a href="stores_near_you.html">Stores Near You</a></li>
         </ul>
       </div>
@@ -38,26 +38,30 @@
     <!-- When your nav bar is resized, you will see that the links on the right turn into a hamburger icon menu -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="index.html">Home</a></li>
-      <li><a href="favorite_recipes.html">Favorite Recipes</a></li>
+      <li><a href="favorite_recipes.html">Recent Recipes</a></li>
       <li><a href="stores_near_you.html">Stores Near You</a></li>
     </ul>
   </header>
 
-  <!-- Insert MAIN CONTENT HERE -->
-
+  <!-- MAIN CONTENT HERE -->
   <main id="mainStoreLocator">
     <header id="storeLocatorBanner">
       <h1 class="storeLocatorStyle">Locate a store near you</h1>
       <p id="storeLocatorP">Scroll down below the map to view local grocery stores <br> & supermakets in your area.
         Enjoy!</p>
     </header>
-    <div class="container">
-      <div id="map"></div>
-      <br>
-      <h3 id="store_list">These are the grocery stores near you that are open now: </h3>
-      <br>
-      <ol id="store_list"></ol>
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col s12 m12 l8">
+          <div id="map"></div>
+        </div>
+        <div class="col s12 m12 l4">
+          <h3 id="store_list_h" class="container hide">Grocery stores near you that are open now: </h3>
+          <br />
+          <ol id="store_list"></ol>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -66,22 +70,18 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          <h3 class="white-text">Recipe Pal</h3>
+          <div>
+            © 2020 Copyright
+          </div>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Favorite Recipes</a></li>
+            <li><a class="grey-text text-lighten-3" href="favorite_recipes.html">Recent Recipes</a></li>
             <li><a class="grey-text text-lighten-3" href="stores_near_you.html">Stores Near You</a></li>
           </ul>
         </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
   </footer>
