@@ -206,12 +206,20 @@ aside {
   background-color: #ffacac !important;
   padding: 10px !important;
   color: #862e2e;
+  margin-top: 50px !important;
 }
 #recipe_options p,
 #rec_recipes p {
-  margin-bottom: 20px;
   font-style: italic;
+  font-weight: bolder;
+  margin-bottom: 12px !important;
 }
+#recipe_options span,
+#rec_recipes span {
+  font-style: italic;
+  font-weight: normal;
+}
+
 #recipe_options h4,
 #rec_recipes h4 {
   text-transform: uppercase;
@@ -221,7 +229,6 @@ aside {
 
 #content_header {
   text-align: center;
-  color: #862e2e;
 }
 
 #content_header h4 {
@@ -242,6 +249,9 @@ aside {
   color: white;
   border: none !important;
   border-radius: 5px !important;
+}
+#grocery_aside h2 {
+  font-weight: bolder;
 }
 
 header#recentRecipeBanner {

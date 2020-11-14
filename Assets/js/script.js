@@ -62,6 +62,9 @@ const getRecipes = function (url) {
             var allRecipeImgEl = document.querySelectorAll("#recipe_img");
             var allRecipeSources = document.querySelectorAll("#source");
             var allRecipeButtons = document.querySelectorAll("#view_recipe");
+            var allRecipeCaloriesEl = document.querySelectorAll("#calories");
+            var allRecipeIngr = document.querySelectorAll("#ingredient_cnt");
+            var allHealthLabels = document.querySelectorAll("#health_labels");
 
             for (var i = 0; i < ourRecipesArray.length; i++) {
               allRecipeCards[i].classList.remove("hide");
@@ -69,6 +72,12 @@ const getRecipes = function (url) {
               allRecipeImgEl[i].setAttribute("src", ourRecipesArray[i].image);
               allRecipeSources[i].textContent = ourRecipesArray[i].source;
               allRecipeButtons[i].href = ourRecipesArray[i].url;
+              var calories = ourRecipesArray[i].calories;
+              var servings = ourRecipesArray[i].yield;
+              var cal_per_serv = parseInt(calories / servings);
+              allRecipeCaloriesEl[i].textContent = cal_per_serv;
+              allRecipeIngr[i].textContent =
+                ourRecipesArray[i].ingredients.length;
             }
           } else {
             // We use "ourRecipesArray" to print the results to the screen
@@ -211,6 +220,11 @@ $("#fav_recipe_cards").ready(function () {
       let cardCon3 = document.createElement("div");
       let recipeName4 = document.createElement("h4");
       let recipeSource4 = document.createElement("p");
+      let recipeSourceSpan = document.createElement("span");
+      let recipeCalorieEl = document.createElement("p");
+      let recipeCalorieSpan = document.createElement("span");
+      let recipeIngrCountEl = document.createElement("p");
+      let recipeIngrCountSpan = document.createElement("span");
       let recipeLink5 = document.createElement("a");
 
       favGrid1.setAttribute("class", "col s6 m3");
@@ -224,11 +238,22 @@ $("#fav_recipe_cards").ready(function () {
       cardCon3.setAttribute("class", "card-content");
       cardCon3.appendChild(recipeName4);
       cardCon3.appendChild(recipeSource4);
+      recipeCalorieEl.textContent = "Calories: ";
+      cardCon3.appendChild(recipeCalorieEl);
+      recipeIngrCountEl.textContent = "Ingredients: ";
+      cardCon3.appendChild(recipeIngrCountEl);
       cardCon3.appendChild(recipeLink5);
       recipeName4.setAttribute("id", "recipe_name_r");
-      recipeSource4.setAttribute("id", "source_r");
+      recipeSourceSpan.setAttribute("id", "source_r");
+      recipeSource4.textContent = "Source: ";
+      recipeSource4.appendChild(recipeSourceSpan);
+      recipeCalorieSpan.setAttribute("id", "calories_r");
+      recipeIngrCountSpan.setAttribute("id", "ingr_cnt_r");
+      recipeIngrCountEl.appendChild(recipeIngrCountSpan);
+      recipeCalorieEl.appendChild(recipeCalorieSpan);
       recipeLink5.setAttribute("id", "view_recipe_r");
       recipeLink5.setAttribute("target", "_blank");
+
       recipeLink5.textContent = "View Recipe";
 
       // Appending to HTML file
@@ -239,12 +264,19 @@ $("#fav_recipe_cards").ready(function () {
     let allRecipeImgEl_r = document.querySelectorAll("#recipe_img_r");
     let allRecipeSources_r = document.querySelectorAll("#source_r");
     let allRecipeButtons_r = document.querySelectorAll("#view_recipe_r");
+    let allRecipeCalories_r = document.querySelectorAll("#calories_r");
+    let allRecipeIngrCounts_r = document.querySelectorAll("#ingr_cnt_r");
 
     for (let i = 0; i < favRecipes.length; i++) {
       allRecipeNameEl_r[i].textContent = favRecipes[i].name;
       allRecipeImgEl_r[i].setAttribute("src", favRecipes[i].image);
-      allRecipeSources_r[i].textContent = "Source: " + favRecipes[i].source;
+      allRecipeSources_r[i].textContent = favRecipes[i].source;
       allRecipeButtons_r[i].setAttribute("href", favRecipes[i].url);
+      var calories = favRecipes[i].calories;
+      var servings = favRecipes[i].yield;
+      var cal_per_serv = parseInt(calories / servings);
+      allRecipeCalories_r[i].textContent = cal_per_serv;
+      allRecipeIngrCounts_r[i].textContent = favRecipes[i].ingredients.length;
     }
 
     allRecipeNameEl_r[0].textContent = favRecipes[0].name;
@@ -269,7 +301,8 @@ function printRecipeOptions(resultArray) {
   var allRecipeImgEl = document.querySelectorAll("#recipe_img");
   var allRecipeSources = document.querySelectorAll("#source");
   var allRecipeButtons = document.querySelectorAll("#view_recipe");
-  var allRecipeIngrBut = document.querySelectorAll("#ingredient_list");
+  var allRecipeCaloriesEl = document.querySelectorAll("#calories");
+  var allRecipeIngr = document.querySelectorAll("#ingredient_cnt");
 
   for (var i = 0; i < allRecipeCards.length; i++) {
     allRecipeCards[i].classList.remove("hide");
@@ -277,5 +310,17 @@ function printRecipeOptions(resultArray) {
     allRecipeImgEl[i].setAttribute("src", resultArray[i].image);
     allRecipeSources[i].textContent = resultArray[i].source;
     allRecipeButtons[i].href = resultArray[i].url;
+    var calories = resultArray[i].calories;
+    var servings = resultArray[i].yield;
+    var cal_per_serv = parseInt(calories / servings);
+    allRecipeCaloriesEl[i].textContent = cal_per_serv;
+    allRecipeIngr[i].textContent = ourRecipesArray[i].ingredients.length;
+
+    // if (resultArray[i].healthLabels.length) {
+    //   allRecipeHealthLabels.classList.remove("hide");
+    //   allRecipeHealthLabels.textContent
+    //     `<button>${max_num_ingredients} or less ingredients</button>`
+    //   );
+    // }
   }
 }
