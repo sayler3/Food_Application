@@ -88,7 +88,6 @@ $("#search_button").on("click", function (e) {
 
     let max_num_ingredients = $("#max_ingredients_input").val().trim();
     if (max_num_ingredients === "") {
-      return;
     } else {
       url += "&ingr=" + max_num_ingredients;
     }
@@ -96,7 +95,6 @@ $("#search_button").on("click", function (e) {
     let min_calories = $("#min_calories").val().trim();
     let max_calories = $("#max_calories").val().trim();
     if (min_calories === "" && max_calories === "") {
-      return;
     } else {
       url += "&calories=" + min_calories + "-" + max_calories;
     }
