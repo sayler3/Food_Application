@@ -6,7 +6,7 @@ var ourRecipesArray = []; // my array
 var favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
 
 // Last result index (exclusive, default from + 12). We use 12 becuase we want to show more results than 10
-const getRecipes = function (meal, url) {
+const getRecipes = function (url) {
   fetch(url).then(function (response) {
     if (!response.ok) {
       console.log("Looks like there was a problem. " + response.statusText);
@@ -17,38 +17,64 @@ const getRecipes = function (meal, url) {
       .json()
       .then(function (data) {
         console.log(data);
-        document.querySelector("#search_term").textContent = meal + " recipes";
-        document.querySelector(".results_count").textContent =
-          data.count + " results";
-        console.log("Total Results: " + data.count);
+        var result_count = data.hits.length;
+        console.log("Total Results: " + result_count);
+        $("#content_header").removeClass("hide");
 
-        // we will create an array of objects containing the data that we are interested in
-        // var ourRecipesArray = []; // my array
-        var recipe = {}; // my object
+        if (data.count === 0) {
+          document.querySelector(".results_count").textContent =
+            "No results found, try search again";
+          document;
+        } else {
+          document.querySelector(".results_count").textContent =
+            result_count + " results";
 
-        for (var i = 0; i < data.hits.length; i++) {
-          recipe = {
-            name: data.hits[i].recipe.label,
-            image: data.hits[i].recipe.image,
-            source: data.hits[i].recipe.source,
-            url: data.hits[i].recipe.url,
-            ingredients: data.hits[i].recipe.ingredients,
-            calories: data.hits[i].recipe.calories,
-            yield: data.hits[i].recipe.yield,
-            cautions: data.hits[i].recipe.cautions,
-            dietLabels: data.hits[i].recipe.dietLabels,
-            healthLabels: data.hits[i].recipe.healthLabels,
-            totalDaily: data.hits[i].recipe.dietLabels,
-            totalNutrients: data.hits[i].recipe.totalNutrients,
-          };
-          ourRecipesArray.push(recipe);
+          // create an array of objects containing the data that we want
+          var recipe = {}; // my object
+          for (var i = 0; i < data.hits.length; i++) {
+            recipe = {
+              name: data.hits[i].recipe.label,
+              image: data.hits[i].recipe.image,
+              source: data.hits[i].recipe.source,
+              url: data.hits[i].recipe.url,
+              ingredients: data.hits[i].recipe.ingredients,
+              calories: data.hits[i].recipe.calories,
+              yield: data.hits[i].recipe.yield,
+              cautions: data.hits[i].recipe.cautions,
+              dietLabels: data.hits[i].recipe.dietLabels,
+              healthLabels: data.hits[i].recipe.healthLabels,
+              totalDaily: data.hits[i].recipe.dietLabels,
+              totalNutrients: data.hits[i].recipe.totalNutrients,
+            };
+            ourRecipesArray.push(recipe);
+          }
+
+          console.log("This is our object we created that holds the recipes: ");
+          console.log(ourRecipesArray);
+          // if there is less then 12 results
+          if (ourRecipesArray.length < 12) {
+            $("#recipe_options").removeClass("hide");
+            $("#grocery_aside").removeClass("hide");
+
+            // Setting the recipe name and src attribute of the recipe image
+            var allRecipeCards = document.querySelectorAll("#recipe_card");
+            var allRecipeNameEl = document.querySelectorAll("#recipe_name");
+            var allRecipeImgEl = document.querySelectorAll("#recipe_img");
+            var allRecipeSources = document.querySelectorAll("#source");
+            var allRecipeButtons = document.querySelectorAll("#view_recipe");
+
+            for (var i = 0; i < ourRecipesArray.length; i++) {
+              allRecipeCards[i].classList.remove("hide");
+              allRecipeNameEl[i].textContent = ourRecipesArray[i].name;
+              allRecipeImgEl[i].setAttribute("src", ourRecipesArray[i].image);
+              allRecipeSources[i].textContent = ourRecipesArray[i].source;
+              allRecipeButtons[i].href = ourRecipesArray[i].url;
+            }
+          } else {
+            // We use "ourRecipesArray" to print the results to the screen
+            printRecipeOptions(ourRecipesArray);
+          }
         }
-
-        console.log("This is our object we created that holds the recipes: ");
-        console.log(ourRecipesArray);
-
-        // We use "ourRecipesArray" to print the results to the screen
-        printRecipeOptions(ourRecipesArray);
       })
       .catch(function (err) {
         console.error("Fetch Error: ", err);
@@ -58,9 +84,16 @@ const getRecipes = function (meal, url) {
 
 // EVENT LISTENERS
 $("#open_form_button").on("click", function () {
-  $("#search_alert").text(" ");
+  $("#search_alert").text("");
   $("#searchForm").modal();
   $("#recipe_options").addClass("hide");
+  $("#filter_input").addClass("hide");
+  $("#filter_input").empty();
+  $("#content_header").addClass("hide");
+  var allRecipeCards = document.querySelectorAll("#recipe_card");
+  for (var i = 0; i < allRecipeCards.length; i++) {
+    allRecipeCards[i].classList.add("hide");
+  }
 });
 
 $(".sidenav-trigger").on("click", function () {
@@ -72,11 +105,18 @@ $("#search_button").on("click", function (e) {
   ourRecipesArray = [];
   $("#grocery_tohide").text("Press the red button to see ingredients!");
   let meal = $("#recipe_input").val().trim();
+  let max_num_ingredients = $("#max_ingredients_input").val().trim();
+  let min_calories = $("#min_calories").val().trim();
+  let max_calories = $("#max_calories").val().trim();
+  let allCheckedBoxes = $("input[type=checkbox]:checked");
+  // confirm input is valid
   if (meal === "") {
+    // if meal search input is left empty or calorie range input is invalid
     $("#search_alert").text("Please enter a recipe, ingredient, or keyword");
     return false;
   } else {
     $("#searchForm").modal("close");
+    $("#content_header").removeClass("hide");
     let url =
       "https://api.edamam.com/search?q=" +
       meal +
@@ -84,24 +124,40 @@ $("#search_button").on("click", function (e) {
       app_id +
       "&app_key=" +
       app_key +
-      "&from=0&to=12";
+      "&from=0&to=50";
 
-    let max_num_ingredients = $("#max_ingredients_input").val().trim();
-    if (max_num_ingredients === "") {
-    } else {
+    if (!(max_num_ingredients === "")) {
       url += "&ingr=" + max_num_ingredients;
+      $("#filter_input").removeClass("hide");
+      $("#filter_input").append(
+        `<button>${max_num_ingredients} or less ingredients</button>`
+      );
     }
 
-    let min_calories = $("#min_calories").val().trim();
-    let max_calories = $("#max_calories").val().trim();
-    if (min_calories === "" && max_calories === "") {
-    } else {
-      url += "&calories=" + min_calories + "-" + max_calories;
+    if (!(min_calories === "" && max_calories === "")) {
+      $("#filter_input").removeClass("hide");
+      if (!(min_calories === "") && max_calories === "") {
+        // if only min calories is filled out
+        url += "&calories=" + min_calories + "-";
+        $("#filter_input").append(
+          `<button>More than ${min_calories} calories/serving</button>`
+        );
+      } else if (!(max_calories === "") && min_calories === "") {
+        // if only max calories is filled out
+        url += "&calories=-" + max_calories;
+        $("#filter_input").append(
+          `<button>Less than ${max_calories} calories/serving</button>`
+        );
+      } else {
+        url += "&calories=" + min_calories + "-" + max_calories;
+        $("#filter_input").append(
+          `<button>${min_calories}-${max_calories} calories/serving</button>`
+        );
+      }
     }
-
     // check if filters are added
-    var allCheckedBoxes = $("input[type=checkbox]:checked");
     if (allCheckedBoxes.length) {
+      $("#filter_input").removeClass("hide");
       for (var i = 0; i < allCheckedBoxes.length; i++) {
         var id = allCheckedBoxes[i].getAttribute("id");
         var apiParameter = allCheckedBoxes[i].getAttribute("apiParameter");
@@ -110,11 +166,12 @@ $("#search_button").on("click", function (e) {
         } else if (id === "healthParameter") {
           url += "&health=" + apiParameter;
         }
+        $("#filter_input").append(`<button>${apiParameter}</button>`);
       }
     }
-
     // fetch recipes
-    getRecipes(meal, url);
+    getRecipes(url);
+    document.querySelector("#search_term").textContent = meal + " recipes";
     console.log("Fetching results with the url: " + url);
   }
 });
@@ -152,12 +209,11 @@ $("#fav_recipe_cards").ready(function () {
       let cardImg3 = document.createElement("div");
       let favRecipeImg4 = document.createElement("img");
       let cardCon3 = document.createElement("div");
-      let recipeName4 = document.createElement("h5");
+      let recipeName4 = document.createElement("h4");
       let recipeSource4 = document.createElement("p");
-      let recipeBut4 = document.createElement("button");
       let recipeLink5 = document.createElement("a");
 
-      favGrid1.setAttribute("class", "col s6 m4 l4");
+      favGrid1.setAttribute("class", "col s6 m3");
       favGrid1.appendChild(card2);
       card2.setAttribute("class", "card hoverable");
       card2.appendChild(cardImg3);
@@ -168,10 +224,9 @@ $("#fav_recipe_cards").ready(function () {
       cardCon3.setAttribute("class", "card-content");
       cardCon3.appendChild(recipeName4);
       cardCon3.appendChild(recipeSource4);
-      cardCon3.appendChild(recipeBut4);
+      cardCon3.appendChild(recipeLink5);
       recipeName4.setAttribute("id", "recipe_name_r");
       recipeSource4.setAttribute("id", "source_r");
-      recipeBut4.appendChild(recipeLink5);
       recipeLink5.setAttribute("id", "view_recipe_r");
       recipeLink5.setAttribute("target", "_blank");
       recipeLink5.textContent = "View Recipe";
@@ -209,16 +264,18 @@ function printRecipeOptions(resultArray) {
   $("#grocery_aside").removeClass("hide");
 
   // Setting the recipe name and src attribute of the recipe image
+  var allRecipeCards = document.querySelectorAll("#recipe_card");
   var allRecipeNameEl = document.querySelectorAll("#recipe_name");
   var allRecipeImgEl = document.querySelectorAll("#recipe_img");
   var allRecipeSources = document.querySelectorAll("#source");
   var allRecipeButtons = document.querySelectorAll("#view_recipe");
   var allRecipeIngrBut = document.querySelectorAll("#ingredient_list");
 
-  for (var i = 0; i < allRecipeNameEl.length; i++) {
+  for (var i = 0; i < allRecipeCards.length; i++) {
+    allRecipeCards[i].classList.remove("hide");
     allRecipeNameEl[i].textContent = resultArray[i].name;
     allRecipeImgEl[i].setAttribute("src", resultArray[i].image);
-    allRecipeSources[i].textContent = "Source: " + resultArray[i].source;
-    allRecipeButtons[i].setAttribute("href", resultArray[i].url);
+    allRecipeSources[i].textContent = resultArray[i].source;
+    allRecipeButtons[i].href = resultArray[i].url;
   }
 }

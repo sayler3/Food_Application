@@ -43,11 +43,13 @@ main {
   border: none;
   outline: 0;
   display: inline-block;
-  color: black;
+  color: #862e2e;
+  font-weight: bolder;
   background-color: #ffd5d5;
   text-align: center;
   cursor: pointer;
   height: 100%;
+  padding: 10px !important;
 }
 
 .hero-text button:hover {
@@ -128,24 +130,118 @@ input[type="number"]:focus {
 }
 
 content {
-  background-color: lightgray;
+  background-color: #e9ecef;
+  height: 100%;
 }
+
+#recipe_options,
+#rec_recipes {
+  padding: 10px;
+}
+
 span.results_count {
   font-style: italic;
 }
 
 aside {
   background-color: white;
-  height: 300px;
+  height: 100%;
 }
-
-.card-col {
-  float: left;
+.filter_input button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  color: darkslategray;
+  background-color: #ffd5d5;
   text-align: center;
+  cursor: pointer;
+  height: 100%;
+}
+.filter_input button:hover {
+  background-color: #ffacac;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .card {
-  margin: 20px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  height: 100%;
+  margin-bottom: 10px !important;
+  min-height: 500px;
+}
+.card-content {
+  padding: 5px !important;
+}
+
+#recipe_options,
+#rec_recipes {
+  text-align: center;
+}
+
+#recipe_options .btn-floating {
+  border: none !important;
+  outline: 0;
+  display: inline-block;
+  color: white;
+  background-color: #bf4342 !important;
+  text-align: center;
+  cursor: pointer;
+}
+#recipe_options .btn-floating:hover {
+  background-color: #862e2e !important;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+#rec_recipes a,
+#recipe_options a {
+  background-color: #ffd5d5 !important;
+  padding: 10px !important;
+  color: #862e2e;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+#recipe_options a:hover,
+#rec_recipes a:hover {
+  background-color: #ffacac !important;
+  padding: 10px !important;
+  color: #862e2e;
+}
+#recipe_options p,
+#rec_recipes p {
+  margin-bottom: 20px;
+  font-style: italic;
+}
+#recipe_options h4,
+#rec_recipes h4 {
+  text-transform: uppercase;
+  color: #862e2e;
+  font-weight: bolder;
+}
+
+#content_header {
+  text-align: center;
+  color: #862e2e;
+}
+
+#content_header h4 {
+  text-transform: capitalize;
+  font-style: italic;
+  font-weight: bold;
+}
+#content_header h2 {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+#content_header button {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: #862e2e;
+  color: white;
+  border: none !important;
+  border-radius: 5px !important;
 }
 
 header#recentRecipeBanner {
@@ -170,8 +266,7 @@ header#recentRecipeBanner {
 
 /* Styling for the footer */
 footer {
-  /* margin-top: 50px; */
-  /* position: relative; */
+  margin-top: 0px !important;
   bottom: 0;
   width: 100%;
 }
@@ -204,9 +299,6 @@ footer {
     font-size: 11px;
     padding: 10px 10px;
   }
-  .card-col {
-    width: 50%;
-  }
 }
 @media (min-width: 480px) {
   /* smartphones, Android phones, landscape iPhone */
@@ -235,9 +327,6 @@ footer {
     font-size: 12px;
     padding: 10px 10px;
   }
-  .card-col {
-    width: 50%;
-  }
 }
 @media (min-width: 600px) {
   /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
@@ -262,9 +351,6 @@ footer {
   .img-container .list-group-item {
     font-size: 14px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 50%;
   }
 }
 @media (min-width: 801px) {
@@ -291,9 +377,6 @@ footer {
     font-size: 14px;
     padding: 10px 10px;
   }
-  .card-col {
-    width: 33.33%;
-  }
 }
 @media (min-width: 1025px) {
   /* big landscape tablets, laptops, and desktops */
@@ -319,9 +402,6 @@ footer {
     font-size: 15px;
     padding: 10px 10px;
   }
-  .card-col {
-    width: 33.33%;
-  }
 }
 @media (min-width: 1281px) {
   /* hi-res laptops and desktops */
@@ -346,9 +426,6 @@ footer {
   .img-container .list-group-item {
     font-size: 18px;
     padding: 10px 10px;
-  }
-  .card-col {
-    width: 33.33%;
   }
 }
 
@@ -395,10 +472,10 @@ div#name {
   border-radius: 5px;
   border-style: solid;
   border-width: thin;
-  border-color: black;
+  border-color: darkslategray;
   text-align: center;
   font-style: italic;
-  box-shadow: 2px 2px black;
+  box-shadow: 2px 2px darkslategray;
 }
 div#name:hover {
   color: #bf4342;

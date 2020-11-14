@@ -76,11 +76,13 @@
               <div class="col s6">
                 <label for="ingredients">Ingredients </label>
                 <input type="number" id="max_ingredients_input" placeholder="Up to">
+
               </div>
               <div class="col s6">
                 <label for="num_of_calories">Calories </label>
                 <input type="number" id="min_calories" placeholder="From" min="1" max="500000">
                 <input type="number" id="max_calories" placeholder="To" min="1" max="500000">
+
               </div>
             </div>
 
@@ -174,245 +176,226 @@
       9-columns-wide on large screens,
       8-columns-wide on medium screens,
       12-columns-wide on small screens -->
-      <content class="col s12 m9 l8">
-
-        <div class="container hide" id="recipe_options">
+      <content class="col s12 m8">
+        <div class="hide" id="content_header">
           <h2 id="search_term"></h2>
-          <p class="results_count"></p>
+          <h4 class="results_count"></h4>
+          <div id="filter_input" class="hide"></div>
+        </div>
 
+        <!-- Recipe Options Content starts here -->
+        <!-- ADDED ID TO OTHER BUTTON IN EACH RECIPE -->
+        <div class="container-fluid hide" id="recipe_options">
           <div class="row">
-            <!-- Recipe Options Content starts here -->
-            <!-- ADDED ID TO OTHER BUTTON IN EACH RECIPE -->
             <!-- recipe #1 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=0><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=0><i
                       class="material-icons">add</i>
                   </button>
                 </div>
-
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
+                  <h4 id="recipe_name"></h4>
                   <p><b>Source: </b><span id="source"></span></p>
-                  <a id="view_recipe" target="_blank">
-                    <button>View Recipe</button>
-                  </a>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #2 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=1><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=1><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #3 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=2><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=2><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #4 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=3><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=3><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <!-- recipe #5 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=4><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=4><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #6 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=5><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=5><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #7 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=6><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=6><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #8 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=7><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=7><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <!-- recipe #9 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=8><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=8><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #10 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=9><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=9><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #11 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6  l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=10><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=10><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
 
             <!-- recipe #12 -->
-            <div class="card-col">
-              <div class="card hoverable">
+            <div class="col s6 m6 l3">
+              <div class="card hoverable hide" id="recipe_card">
                 <div class="card-image">
                   <img id="recipe_img">
-                  <button class="btn-floating halfway-fab waves-effect waves-light red" id="ingredient_list" value=11><i
+                  <button class="btn-floating halfway-fab waves-effect waves-light" id="ingredient_list" value=11><i
                       class="material-icons">add</i>
                   </button>
                 </div>
                 <div class="card-content">
-                  <h5 id="recipe_name"></h5>
-                  <p id="source"></p>
-                  <button>
-                    <a id="view_recipe" target="_blank">View Recipe</a>
-                  </button>
+                  <h4 id="recipe_name"></h4>
+                  <p><b>Source: </b><span id="source"></span></p>
+                  <a id="view_recipe" target="_blank">View Recipe</a>
                 </div>
               </div>
             </div>
-
           </div>
+
         </div>
       </content>
 
@@ -421,7 +404,7 @@
         4-columns-wide on medium screens,
         12-columns-wide on small screens -->
       <!-- JR UPDATED HERE TO CREATE LIST -->
-      <aside class="col s12 m3 l4 container hide" id="grocery_aside">
+      <aside class="col s12 m4 container hide" id="grocery_aside">
         <h4 class="center-align">Grocery List</h4>
         <div class="center-align" id="grocery_tohide">Press the red button to see ingredients!</div>
         <ul class="collection with-header" id="grocery_ul">
