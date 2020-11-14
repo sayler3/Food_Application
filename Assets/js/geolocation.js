@@ -165,7 +165,7 @@ var displayStores = function (resultArray) {
   } else {
     openStores = [];
     for (var i = 0; i < resultArray.length; i++) {
-      if (resultArray[i].is_open === false) {
+      if (resultArray[i].is_open === true) {
         $("#store_list").append(
           `<div id="name">${resultArray[i].name} , address: ${resultArray[i].address}<\div>`
         );
