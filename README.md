@@ -30,6 +30,14 @@ When the user is ready to purchase the ingredients needed they will navigate to 
 
 The following animation shows the web application's appearance and functionality:
 
+##### "Home" Page Demo:
+
+![Demo of Home Page](./readme_images/home_page_demo.gif)
+
+##### "Recent Recipes" Page Demo:
+
+![Demo of Recent Recipes Page](./readme_images/recent_recipes_demo.gif)
+
 ##### "Stores Near You" Page Demo:
 
 ![Demo of Stores Near You Page](./readme_images/stores_near_you_demo.gif)
