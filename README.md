@@ -42,10 +42,12 @@ The following animation shows the web application's appearance and functionality
 
 ![Demo of Stores Near You Page](./readme_images/stores_near_you_demo.gif)
 
-Our Application is responsive; the layout and content responds and adapts based on the size of screen they are presented on. See Examples Below:
+Our Application is responsive; the layout and content responds and adapts based on the size of screen they are presented on. See Example Below:
 
-|                        Small devices (ex: Portrait phones (<544px))                         |                        Medium devices (ex: Tablets (≥768px - <992px))                        |                            Large devices (ex: Desktops (≥992px))                            |
-| :-----------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
+![Responsive Views](readme_images/recipe_pal_responsive_design.png)
+
+|                 Small devices (ex: Portrait phones (<544px))                  |                 Medium devices (ex: Tablets (≥768px - <992px))                 |                     Large devices (ex: Desktops (≥992px))                     |
+| :---------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
 | ![small device search result view](./readme_images/sm_search_result_view.png) | ![medium device search result view](./readme_images/md_search_result_view.png) | ![large device search result view](./readme_images/lg_search_result_view.png) |
 
 ## Table of Contents
