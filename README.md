@@ -75,4 +75,4 @@ The Recipe Pal web application was created by [**Sam Ayler**](https://github.com
 
 ## License
 
-This project is licensed under [**GNU GPL v3**](https://choosealicense.com/licenses/gpl-3.0/).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
